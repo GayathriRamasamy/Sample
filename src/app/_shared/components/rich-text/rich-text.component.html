@@ -1,0 +1,18 @@
+<!-- <div class="ql-editor-wrapper quill-text-border" [ngClass]="{'required-style':bottomBorderStyle===true}">
+  <label [ngClass]="{'mdl-textfield_readonly':readonly, 'floating-label': value}">
+    <span #mdllabelwidth>{{label}}
+      <i class="fa fa-asterisk" *ngIf="showStar"></i>
+    </span>
+  </label>
+  <span id="{{name}}label" class="info-icon-textarea" [style.left.px]="iconLeft" *ngIf="tooltip !== '' && tooltip !== null">
+    <i class="fa fa-info-circle" placement="top" ngbPopover="{{tooltip}}" popoverTitle="" triggers="mouseenter:mouseleave"></i>
+  </span> -->
+
+<!-- <div id="{{name}}div" #input [(ngModel)]="value" *ngIf="!quillShow" class="ql-editor" [ngClass]="{'disableddiv':readonly===true}"
+       [name]="name" [innerHTML]="value | safeHtml" contenteditable="true" [style]="{'height':'300px'}"  (focus)="onFocus($event)"
+       placeholder="" ngDefaultControl></div> -->
+<!-- </div> -->
+<quill-editor id=" {{name}}" [modules]=" quillOption" [(ngModel)]="value" [name]="name" (onSelectionChanged)="onFocusOut($event)"
+  (onEditorCreated)="onSetQuillFocus($event)" (onContentChanged)="onContentChanges($event)" [style]="{'height':'150px'}"
+  placeholder=''></quill-editor>
+<!-- <p *ngIf="hintText" class="helptext">{{hintText}}</p> -->

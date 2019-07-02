@@ -1,0 +1,104 @@
+:host(.no-red-border){
+    input.ng-invalid{
+        &~label.animate-border:before{
+            background-color: transparent;
+    }
+}
+}
+
+:host(.ng-valid){
+    input{
+        &~label.animate-border:before{
+            background-color: transparent;
+    }
+}
+}
+
+:host(.ng-invalid){
+    input{
+        &~label.animate-border:before{
+            background-color: #d9534f;
+    }
+}
+
+}
+:host(.si-wizard-date-picker), :host(.scentportfolio-create){
+    &.ng-valid{
+        input{
+            &~label.animate-border:before{
+                background-color: #d8d8d8;
+        }
+    }
+}
+
+    &.ng-invalid{
+        input{
+            &~label.animate-border:before{
+                background-color: #d9534f;
+        }
+    }
+}
+
+}
+
+:host(.gtm-date-picker){
+    &.ng-valid{
+        input{
+            &~label.animate-border:before{
+                background-color: #d8d8d8;
+        }
+    }
+}
+
+    &.ng-invalid{
+        input{
+            &~label.animate-border:before{
+                background-color: #d8d8d8;
+        }
+    }
+}
+}
+.input-group-addon{
+    cursor: pointer;
+}
+.input-group-addon{
+    &[disabled='true']{
+        pointer-events: none;
+    }
+}
+.form-group{
+    position: relative;
+    ngb-datepicker{
+        position: absolute;
+        top: 35px;
+        left: 0;
+        z-index: 9;
+        background: #fff;
+    }
+}
+
+.remove-icon{
+    width: 24px;
+    padding: 6px 7px;
+    color: #7f7f74;
+    cursor: pointer;
+    // background: #e9ecef;
+}
+
+// update buttons styles by tamizharasan 15-5-2018
+
+.modal-footer
+{
+    .primarybutton {
+        background-color: #7F7F75;
+        color: #fff;
+    }
+    .secondarybutton {
+        background: transparent;
+        border:1px solid #7E7F7A;
+        color: #7E7F7A;
+    }
+}
+
+
+

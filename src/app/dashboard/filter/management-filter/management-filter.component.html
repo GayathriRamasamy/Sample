@@ -1,0 +1,447 @@
+
+
+    <div class="searchFilters mt-2">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+              <div class="mx-2 mt-5 d-flex" class="align-right">
+                <ul class="tabs tabs-dark">
+                  <li class="tabs-item mr-0" *ngFor="let tabdata of configdata.subTabs" (click)="navigateSubTab(tabdata)">
+                    <a class="tabs-link" [ngClass]="{'is-active' : selectedSubTab === tabdata }">{{tabdata}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <div class="head d-flex align-items-center">
+          <h3 class="head-text">{{configDataHeader.filter}}</h3>
+          <div class="button-group ml-auto">
+      
+              <div class="button-group pull-right">
+                  <a class="header-white-btn" (click)="onClickResetFilters()">{{configDataHeader.resetFilter}}</a>
+                  <button class="small-button delete" type="button" (click)="onClickCancelFilters()">{{configDataHeader.cancel}}</button>
+                  <button class="small-button clr last" type="button" (click)="onClickApplyFilters()">{{configDataHeader.applyFilter}}</button>
+              </div>
+          </div>
+        </div>
+
+      <div class="content">
+          <div *ngIf="Consideration">
+          <div class="row">
+            
+            <div class="col-sm-20p col-lg-2">
+             
+                <ul class="mdl" >
+
+                  <li *ngFor="let consideration of configdata.consideration.considerationDataPriorities | keyvalue">
+                    <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                      {{consideration.value}}
+                    </mdl-switch>
+                  </li>
+                </ul>
+            
+                  <ul class="mdl" >
+
+                      <li *ngFor="let considerationwin of configdata.consideration.considerationDataWinning | keyvalue">
+                        <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                          {{considerationwin.value}}
+                        </mdl-switch>
+                      </li>
+                    </ul>           
+               
+            </div>
+            <div class="col-sm-20p col-lg-2">
+               
+                    <ul class="mdl" >
+
+                        <li *ngFor="let differenciation of configdata.consideration.differenciationData | keyvalue">
+                          <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                            {{differenciation.value}}
+                          </mdl-switch>
+                        </li>
+                      </ul>    
+                   
+                 
+              <div>
+
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configdata.consideration.differenciationDataMultiSelect.differenciationStrategy}}</label>
+                        <puma-multiselect  [options] ="cloneMaster?.costbook" [(ngModel)]="selected.costbook"
+                        [displayBy]="'Description'"  [identifyBy]="'Id'" (Select)="onAddCostBook($event)" (DeSelect)="onRemoveCostBook($event)"
+                            (SelectAll)="onSelectAllCostBook($event)" (DeSelectAll)="onRemoveAllCostBook($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-20p col-lg-2">
+                <ul class="mdl" >
+
+                  <li *ngFor="let service of configdata.project.serviceData | keyvalue">
+                      <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                        {{service.value}}
+                      </mdl-switch>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-20p col-lg-3">
+                  <div class="filter-content">
+                      <div class="mgn-btm-twnty labelspace" *ngFor = "let brand of configdata.consideration.brandData | keyvalue">
+                          <label class="mgn-btm-ten required_start">{{brand.value}}</label>
+                          <puma-multiselect 
+                              [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                              (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                          </puma-multiselect>
+                      </div>
+                  </div>
+          </div>
+          <div class="col-sm-20p col-lg-3">
+                  <div class="filter-content">
+                      <div class="mgn-btm-twnty labelspace" *ngFor = "let creative of configdata.consideration.creativeData | keyvalue">
+                          <label class="mgn-btm-ten required_start">{{creative.value}}</label>
+                          <puma-multiselect 
+                              [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                              (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                          </puma-multiselect>
+                      </div>
+                  </div>
+            </div>
+            </div>
+        </div>
+        <div *ngIf="Oppertunity">
+            <div class="row">
+              <div class="col-sm-20p col-lg-2">
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace" *ngFor = "let opportunity of configdata.oppertunity.oppertunityData | keyvalue">
+                            <label class="mgn-btm-ten required_start">{{opportunity.value}}</label>
+                            <puma-multiselect 
+                                [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                            </puma-multiselect>
+                        </div>
+                    </div>            
+                 
+              </div>
+              <div class="col-sm-20p col-lg-2">
+                 
+                      <div class="filter-content">
+                          <div class="mgn-btm-twnty labelspace" *ngFor = "let customer of configdata.oppertunity.customerData | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{customer.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                      </div> 
+                     
+                   
+              </div>
+              <div class="col-sm-20p col-lg-2">
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace" *ngFor = "let customer of configdata.oppertunity.customerDataSegmant | keyvalue">
+                            <label class="mgn-btm-ten required_start">{{customer.value}}</label>
+                            <puma-multiselect 
+                                [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                            </puma-multiselect>
+                        </div>
+                    </div> 
+              </div>
+              <div class="col-sm-20p col-lg-3">
+               
+                    <ul class="mdl" >
+
+                        <li *ngFor="let oppertunity of configdata.oppertunity.oppertunityTypes | keyvalue">
+                            <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                              {{oppertunity.value}}
+                            </mdl-switch>
+                          </li>
+                      </ul>   
+               
+              
+                    <div class="filter-content">
+                        <div>configdata.oppertunity.projectType</div>
+                        <puma-multiselect></puma-multiselect>
+                    </div> 
+               
+            </div>
+            <div class="col-sm-20p col-lg-3">
+                    <ul class="mdl" >
+
+                        <li *ngFor="let coreData of configdata.oppertunity.coreData | keyvalue">
+                            <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                              {{coreData.value}}
+                            </mdl-switch>
+                          </li>
+                      </ul>   
+              </div>
+              </div>
+          </div>
+          <div *ngIf="project">
+              <div class="row">
+                
+                <div class="col-sm-20p col-lg-2">
+                    <div class="filter-content">
+                      <div class="mgn-btm-twnty labelspace" *ngFor = "let project of configdata.project.projectData | keyvalue">
+                          <label class="mgn-btm-ten required_start">{{project.value}}</label>
+                          <puma-multiselect 
+                              [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                              (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                          </puma-multiselect>
+                      </div>
+                  </div>              
+                </div>
+                <div class="col-sm-20p col-lg-2">
+                        <div class="filter-content">
+                          <div class="mgn-btm-twnty labelspace" *ngFor = "let potential of configdata.project.potentialData | keyvalue">
+                            <label class="mgn-btm-ten required_start">{{potential.value}}</label>
+                            <puma-multiselect 
+                                [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                            </puma-multiselect>
+                        </div>
+                            
+                        </div> 
+                        <div>
+                            <app-slider></app-slider>
+                            <app-slider></app-slider>
+                            <app-slider></app-slider>
+                            <app-slider></app-slider>
+                        </div>
+                </div>
+                <div class="col-sm-20p col-lg-2">
+            
+                    <ul class="mdl" >
+
+                      <li *ngFor="let service of configdata.project.serviceData | keyvalue">
+                          <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                            {{service.value}}
+                          </mdl-switch>
+                        </li>
+                    </ul>   
+                    <ul class="mdl" >
+
+                      <li *ngFor="let service of configdata.project.serviceOverride | keyvalue">
+                          <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                            {{service.value}}
+                          </mdl-switch>
+                        </li>
+                    </ul>  
+                   
+                        <div class="filter-content">
+                            <div class="mgn-btm-twnty labelspace" *ngFor = "let final of configdata.project.finalData | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{final.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                              
+                          </div>
+                      <app-slider></app-slider>
+                    
+                 
+                </div>
+                <div class="col-sm-20p col-lg-3">
+                 
+                    <div class="filter-content">
+                      <div class="mgn-btm-twnty labelspace" *ngFor = "let enduse of configdata.project.enduseData | keyvalue">
+                        <label class="mgn-btm-ten required_start">{{enduse.value}}</label>
+                        <puma-multiselect 
+                            [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                            (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                        </puma-multiselect>
+                    </div>
+                        
+                    </div>
+                      <app-slider></app-slider>
+                      <app-slider></app-slider>
+                 
+                  
+                      <div class="filter-content">
+                          <div class="mgn-btm-twnty labelspace">
+                            <label class="mgn-btm-ten required_start">{{configdata.project.customerSegment}}</label>
+                            <puma-multiselect 
+                                [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                            </puma-multiselect>
+                        </div>
+                            
+                        </div>
+
+              </div>
+              <div class="col-sm-20p col-lg-3">
+                  <div class="filter-content">
+                      <div class="mgn-btm-twnty labelspace" *ngFor = "let impact of configdata.project.impactData | keyvalue" >
+                        <label class="mgn-btm-ten required_start">{{impact.value}}</label>
+                        <puma-multiselect 
+                            [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                            (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                        </puma-multiselect>
+                    </div>
+                        
+                    </div>
+                      <ul class="mdl" >
+                        <li *ngFor="let lvp of  configdata.project.lvpData | keyvalue">
+                          <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                            {{lvp.value}}
+                          </mdl-switch>
+                        </li>
+                      </ul>
+                 
+                </div>
+                </div>
+            </div>
+            <div *ngIf="fragrance">
+                <div class="row">
+                  
+                  <div class="col-sm-20p col-lg-2">
+                    
+                   
+                        <div class="filter-content">
+                            <div class="mgn-btm-twnty labelspace" *ngFor = "let fragrance of configdata.fragrance.fragranceData | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{fragrance.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                              
+                          </div>   
+                     
+                  </div>
+                  <div class="col-sm-20p col-lg-2">
+                  
+                        <div>Dosage</div>
+                        <app-slider></app-slider>
+                        <ul class="mdl" >
+                            <li *ngFor="let fragrance of  configdata.fragrance.prodata | keyvalue">
+                              <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                                {{fragrance.value}}
+                              </mdl-switch>
+                            </li>
+                          </ul>
+                    
+                     
+                          <div class="filter-content">
+                              <div class="mgn-btm-twnty labelspace" *ngFor = "let creative of configdata.fragrance.creativeCenter | keyvalue" >
+                                <label class="mgn-btm-ten required_start">{{creative.value}}</label>
+                                <puma-multiselect 
+                                    [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                    (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                                </puma-multiselect>
+                            </div>
+                                
+                            </div>   
+                        
+                  </div>
+                  <div class="col-sm-20p col-lg-2">
+                   
+                        <div class="filter-content">
+                            <div class="mgn-btm-twnty labelspace" *ngFor = "let customer of configdata.fragrance.customerData | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{customer.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                              
+                          </div> 
+                  
+                    
+                   
+                  </div>
+                  <div class="col-sm-20p col-lg-3">
+                   
+                        <div class="filter-content">
+                            <div class="mgn-btm-twnty labelspace" *ngFor = "let customer of configdata.fragrance.CustomerSegments | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{customer.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                              
+                          </div> 
+                  
+                    
+                </div>
+                <div class="col-sm-20p col-lg-3">
+                    
+                        <div class="filter-content">
+                            <div class="mgn-btm-twnty labelspace" *ngFor = "let technical of configdata.fragrance.technicalStudies | keyvalue">
+                              <label class="mgn-btm-ten required_start">{{technical.value}}</label>
+                              <puma-multiselect 
+                                  [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                  (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                              </puma-multiselect>
+                          </div>
+                              
+                          </div> 
+                    
+                  </div>
+                  </div>
+              </div>
+              <div *ngIf="date">
+                  <div class="row">
+                    
+                    <div class="col-sm-20p col-lg-2">
+                          <ul class="mdl" >
+                              <li *ngFor="let team of  configdata.dateTime.teams | keyvalue">
+                                <mdl-switch  mdl-ripple  class="mdl-switch-ge is-wide has-label-right mb-0"  >
+                                  {{team.value}}
+                                </mdl-switch>
+                              </li>
+                            </ul> 
+                       
+                    </div>
+                    <div class="col-sm-20p col-lg-2">
+                      
+                      
+                            <div class="filter-content">
+                                <div class="mgn-btm-twnty labelspace" *ngFor = "let team of configdata.dateTime.teamMember | keyvalue">
+                                  <label class="mgn-btm-ten required_start">{{team.value}}</label>
+                                  <puma-multiselect 
+                                      [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                      (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                                  </puma-multiselect>
+                              </div>
+                                  
+                              </div> 
+                            <!-- <div class="filter-content">
+                                <div class="mgn-btm-twnty labelspace" *ngFor = "let team of dateTime..teamMember">
+                                  <label class="mgn-btm-ten required_start">{{team.name}}</label>
+                                  <puma-multiselect 
+                                      [identifyBy]="'Id'" (Select)="onAddSubCategory($event)" (DeSelect)="onRemoveSubCategory($event)"
+                                      (SelectAll)="onSelectAllSubCategory($event)" (DeSelectAll)="onRemoveAllSubCategory($event)">
+                                  </puma-multiselect>
+                              </div>
+                                  
+                              </div>  -->
+                          
+                    </div>
+                    <div class="col-sm-20p col-lg-2">
+                      
+                          <div class="filter-content">
+                            <div *ngFor="let date of  configdata.dateTime.startDate | keyvalue" >
+                          <app-mat-date-picker placeholder={{date.value}}>            
+                                </app-mat-date-picker>   
+                              </div>
+                          </div> 
+                    </div>
+                    <div class="col-sm-20p col-lg-3">
+                          <div class="filter-content">
+                              <div *ngFor="let date of  configdata.dateTime.dateData | keyvalue" >
+                            <app-mat-date-picker placeholder={{date.value}}>            
+                                  </app-mat-date-picker>   
+                                </div>
+                            </div> 
+                      
+                  </div>
+                    </div>
+                </div>
+      </div>
+    </div>

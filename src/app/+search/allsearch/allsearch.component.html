@@ -1,0 +1,34 @@
+<div>
+    <div class="row" close-puma-date-picker>
+        <div class="col-sm-12">
+            <h3 class="margin0 accordion-h pad-btm-ten mgn-tp-thirty">All Search Results </h3>
+            <div class=" work-list-page d-block">
+                <ul class="tab-section graytab wt-bg">
+                    <li *ngFor="let key of filtersTab" (click)="onFilterTagClick(key.field)">
+                        <a [ngClass]="{'active' : selectedTab === key.field, 'disabled-li': key.field === 'My Work'}">{{ key.field }}</a>
+                    </li>
+                </ul>
+                <div class="fragrance-results">
+                    <!-- <fragrance-results [curPage]="fragrances.currentPage" [itemsPerPage]="fragrances.numPerPage"
+                        [(fragranceColl)]="fragrances.coll" [totalResults]="fragrances.total" (onSortByChange)="onFragranceSortByClick($event)"
+                        (onPageChange)="onFragrancePaginationChanged($event)" [showPaginationFormat]=false [key]="key">
+                    </fragrance-results> -->
+                </div>
+                <!-- <div class="fragrance-results">
+                    <project-sort [curPage]="projects.currentPage" [itemsPerPage]="projects.numPerPage"  [totalItems]="projects.total"
+                        (onSortByChange)="onProjectSortByClick($event)" [showPaginationFormat]=false>
+                    </project-sort>
+                    <project-search-list  [(ProjectItems)]="projects.coll" (onPageChange)="onProjectPaginationChanged($event)"
+                        [showPagination]="false" [totalResults]="projects.total">
+                    </project-search-list>
+                </div>
+                <div class="fragrance-results">
+                    <scentportfolio-results [itemsPerPage]="scentportfolios.numPerPage" [totalResults]="scentportfolios.total"
+                        [(scentPortfolioColl)]="scentportfolios.coll" (onPageChange)="onScentPortfolioPaginationChanged($event)"
+                        (onSortByChange)="onScentPortfolioSortByClick($event)" [showPaginationFormat]=false [key]="key">
+                    </scentportfolio-results>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

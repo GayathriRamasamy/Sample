@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-adjust-down@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-adjust-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.0948604,17.9589921 L16.4576796,13.4960383 C16.5860644,13.3649258 16.3933509,13.168118 16.2649661,13.2992305 L12.2341967,17.4153646 C12.1797836,17.4709301 12.1362093,17.4529802 12.1362093,17.3759478 L12.1362093,7.13918518 C12.1362093,7.06235496 12.0751515,7 11.9999197,7 C11.9246878,7 11.8636301,7.06235496 11.8636301,7.13918518 L11.8636301,17.3759478 C11.8636301,17.4543312 11.8197625,17.4706277 11.7656491,17.4153646 L7.73514584,13.2992305 C7.60676106,13.168118 7.41377499,13.3649258 7.54243236,13.4960383 L11.9003616,17.9589921 C11.9534626,18.0133728 12.0411209,18.013965 12.0948604,17.9589921 Z" id="Shape" stroke="#ccccc7" fill="#ccccc7" fill-rule="nonzero"></path>
+    </g>
+</svg>

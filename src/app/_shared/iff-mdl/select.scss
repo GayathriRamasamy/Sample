@@ -1,0 +1,196 @@
+.textfield__label {
+    visibility: visible !important;
+
+}
+
+:host(.gtm-wizard-select){
+    &.ng-invalid, &.ng-valid{
+        .mdl-textfield__input{
+            border-color: #D8D8D8;
+        }
+    }
+}
+
+:host(.red-csp){
+    &.ng-invalid, &.ng-valid{
+        .mdl-textfield__input{
+            color: red !important;
+            &:focus{
+                color: red !important;
+            }
+        }
+    }
+}
+
+:host
+{
+    &.ng-invalid{
+        // .mdl-textfield__input{
+        //     border-color: #d9534f;
+        // }
+        textarea{
+            &.mdl-textfield__input{
+                // border-color: #d9534f;
+                border-width: 1px;
+            }
+        }
+    }
+
+}
+
+:host{
+    .mdl-textfield__error{
+        color: transparent;
+    }
+}
+
+
+.opp-edit-inform{
+    :host{
+        &.mdl-textfield, input, .mdl-textfield{
+            padding:0 0;
+        }
+        .mdl-textfield__label:after{
+            bottom: 0;
+        }
+        
+    }
+}
+.customDetailsModal .mdl-popover--above{
+    .mdl-list{
+        max-height: initial;
+        overflow: initial;
+        width: 100%;
+        display: inline-block;
+    }
+    .scrollable-content{
+        max-height: 320px;
+        overflow-y: auto; 
+        
+    }
+    .select-head-cont{
+        background-color: #7F7F74;
+        color: #fff;
+        padding: 16px;
+        min-height: 48px;
+        font-size: 16px;
+        line-height: 22px;
+        cursor: pointer;
+    }
+    .add-new-brand{
+        padding: 16px;
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.mdl-textfield__input{display:block}
+
+:host /deep/ .mdl-textfield.is-invalid .mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .12) !important;
+}
+
+:host /deep/ .ng-invalid .mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .12) !important;
+}
+
+:host /deep/ .mdl-textfield--floating-label.is-invalid .mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .12) !important;
+}
+
+.mdl-select--floating-label .mdl-textfield {
+    padding-top: 0 ;
+    padding-bottom: 0  ;
+}
+
+.wdth100percent .mdl-textfield {
+    width: 100% ;
+}
+
+iff-mdl-select .mdl-textfield, mdl-select .mdl-textfield {
+    padding: 10px 0;
+
+}
+
+iff-mdl-select .mdl-textfield.is-dirty {
+    border: none !important;
+}
+
+:host /deep/ .mdl-textfield--floating-label.is-focused .mdl-textfield__label,.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label{color:red;font-size:12px;top:4px;visibility:visible}
+
+:host /deep/ .is-focused {
+    border: none !important;
+}
+
+.mdl-textfield {
+    position: relative;
+    font-size: 16px ;
+    display: inline-block ;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100% !important ;
+    margin: 0 ;
+    padding: 20px 0;
+}
+
+.mdl-select--floating-label {
+    padding: 0;
+}
+
+.mdl-textfield__input {
+    // padding: 10px 0 4px;
+    word-break: break-word;
+}
+
+.mdl-textfield__input {
+    border: none ;
+    border-bottom: 1px solid rgba(0,0,0,.12) ;
+    display: block ;
+    margin: 0 ;
+    width: 100% ;
+    background: 0 0 ;
+    text-align: left;
+}
+
+.mdl-select__toggle {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    top: 30px;
+    color: #7f7f73;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mdl-popover {
+    background: #fff;
+    border: none;
+    display: none;
+    margin: 0 ;
+    overflow: visible;
+    padding: 0 ;
+    position: absolute ;
+    -webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+}
+
+.mdl-select .mdl-list {
+    max-height: 280px ;
+    overflow-y: auto ;
+    padding: 0 ;;
+}
+
+.mdl-list {
+    display: block ;
+    padding: 8px 0 ;
+    list-style: none ;
+}
+
+.is-visible {
+    display: block !important;
+    z-index: 10 !important;
+}
+
+.disable-outline  .is-focused {
+    border: none;
+}

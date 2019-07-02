@@ -1,0 +1,45 @@
+ 
+    <ng-container *ngIf="enablePrint">
+        <div class="" style="pointer-events:none; background: white;padding: 0 10px 100px;">
+            <div id="printSection" class="">
+                <div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="margin0 pad-btm-ten mgn-tp-thirty" style="margin-bottom: 6px;">Scent Portfolio Results</h3>
+                            <div class="main-content-sec" style="padding-bottom: 20px;">
+                                <div id="fragranceView">
+                                    <div id="printFragrance">
+                                        <ng-container *ngIf="!enableDetail">
+                                            <app-chart-container></app-chart-container>
+                                        </ng-container>
+
+                                        <ng-container *ngIf="enableDetail">
+                                            <h6>DETAIL COMPONENT</h6>
+                                            <app-details></app-details>
+                                        </ng-container>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sticky-section ng-star-inserted" id="stickyFooter">
+            <div class="sticky-upper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="button-group pull-right">
+                                <button (click)="printResult()" class="cursor-pointer small-button wl-btn-lt ng-star-inserted clr" >
+                                    <i aria-hidden="true" class="fa fa-print"></i> PRINT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+   

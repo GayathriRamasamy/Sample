@@ -1,0 +1,132 @@
+<!-- <div *ngIf='!icon'>
+    <textarea
+     *ngIf='rows'
+      #input [rows]='rows'
+       class='mdl-textfield__input'
+        type='text'
+         [attr.name]='name'
+          [id]='id'
+           [placeholder]='placeholder ? placeholder : ""'
+            (focus)='onFocus($event)'
+             (blur)='onBlur($event)'
+              (keydown)='keydownTextarea($event)'
+               (keyup)='onKeyup($event)'
+                [(ngModel)]='value'
+                 [disabled]='disabled'
+                  [required]='required'
+                   [autofocus]='autofocus'
+                    [readonly]='readonly'></textarea>
+     <input
+        *ngIf='!rows'
+        #input
+        class='mdl-textfield__input'
+        [type]='type'
+        [attr.name]='name'
+        [id]='id'
+        [pattern]='pattern ? pattern : ".*"'
+        [attr.min]='min'
+        [attr.max]='max'
+        [attr.step]='step'
+        [placeholder]='placeholder ? placeholder : ""'
+        [autocomplete]='autocomplete ? autocomplete : ""'
+        (focus)='onFocus($event)'
+        (blur)='onBlur($event)'
+        (keyup)='onKeyup($event)'
+        [(ngModel)]='value'
+        [disabled]='disabled'
+        [required]='required'
+        [autofocus]='autofocus'
+        [readonly]='readonly'
+        [attr.tabindex]='tabindex'
+        [maxlength]='maxlength'>
+     <label class='mdl-textfield__label' [attr.for]='id'>{{label}} <i class='fa fa-asterisk' *ngIf='showStar'></i></label>
+
+     <span class='mdl-textfield__error'>{{errorMessage}}</span>
+   </div>
+   <div *ngIf='icon'>
+      <button mdl-button mdl-button-type='icon' (click)='setFocus()'>
+         <mdl-icon>{{icon}}</mdl-icon>
+      </button>
+      <div class='mdl-textfield__expandable-holder'>
+       <input
+          #input
+          class='mdl-textfield__input'
+          [type]='type'
+          [attr.name]='name'
+          [id]='id'
+          [pattern]='pattern ? pattern : ".*"'
+          [attr.min]='min'
+          [attr.max]='max'
+          [attr.step]='step'
+          [placeholder]='placeholder ? placeholder : ""'
+          [autocomplete]='autocomplete ? autocomplete : ""'
+          (focus)='onFocus($event)'
+          (blur)='onBlur($event)'
+          (keyup)='onKeyup($event)'
+          [(ngModel)]='value'
+          [disabled]='disabled'
+          [required]='required'
+          [autofocus]='autofocus'
+          [readonly]='readonly'
+          [attr.tabindex]='tabindex'
+          [maxlength]='maxlength'
+         >
+     <label class='mdl-textfield__label' [attr.for]='id'>{{label}} <i class='fa fa-asterisk' *ngIf='showStar'></i></label>
+
+     <span class='mdl-textfield__error'>{{errorMessage}}</span>
+      </div>
+   </div> -->
+
+   <div *ngIf="!icon">
+    <div class="textarea-parent">
+        <textarea *ngIf="rows" #input [rows]="rows" class="mdl-textfield__input" type="text" [attr.name]="name" [id]="id" (blur)="onBlur($event)"
+            trim [placeholder]="placeholder ? placeholder : ''" (focus)="onFocus($event)" (keydown)="keydownTextarea($event)"
+            autocomplete="off" (keyup)="onKeyup($event)" [(ngModel)]="value" [disabled]="disabled" [required]="required" [autofocus]="autofocus"
+            [readonly]="readonly" (ngModelChange)="checkDirty();checkValidity();doResize();" [maxlength]="maxlength"></textarea>
+        <input *ngIf="!rows && !autocompleteNope" #input class="mdl-textfield__input" [type]="type" [attr.name]="name" [id]="id"
+            [pattern]="pattern ? pattern : '.*'" [attr.min]="min" [attr.max]="max" [attr.step]="step" (blur)="onBlur($event)"
+            [placeholder]="placeholder ? placeholder : ''" autocomplete="off" (focus)="onFocus($event)" (keyup)="onKeyup($event)"
+            [(ngModel)]="value" [disabled]="disabled" [required]="required" [autofocus]="autofocus" (ngModelChange)="checkDirty();checkValidity()"
+            [readonly]="readonly" [attr.tabindex]="tabindex" [minlength]="minLength" [maxlength]="maxlength">
+        <input *ngIf="!rows && autocompleteNope" #input class="mdl-textfield__input" [type]="type" [attr.name]="name" [id]="id" [pattern]="pattern ? pattern : '.*'"
+            [attr.min]="min" [attr.max]="max" [attr.step]="step" (blur)="onBlur($event)" [placeholder]="placeholder ? placeholder : ''"
+            autocomplete="off" (focus)="onFocus($event)" (keyup)="onKeyup($event)" [(ngModel)]="value" [disabled]="disabled"
+            [required]="required" [autofocus]="autofocus" (ngModelChange)="checkDirty();checkValidity()" [readonly]="readonly"
+            [attr.tabindex]="tabindex" [minlength]="minLength" [maxlength]="maxlength">
+        <label class="mdl-textfield__label" [ngClass]="{'mdl-textfield_readonly':readonly}" [attr.for]="id">
+            <span #mdllabelwidth>{{label}}
+                <i class="fa fa-asterisk" *ngIf="showStar"></i>
+            </span>
+        </label>
+        <span class="info-icon-textarea" [style.left.px]="iconLeft" *ngIf="tooltip !== '' && tooltip !== null">
+            <i class="fa fa-info-circle" placement="top" ngbPopover="{{tooltip}}" popoverTitle="" triggers="mouseenter:mouseleave"></i>
+        </span>
+        <span class="mdl-textfield__error">{{errorMessage}}</span>
+    </div>
+    <p *ngIf="showHintTextOnFocus" class="helptext">
+        <!-- <i class="fa fa-commenting" *ngIf="hintTextIcon"></i> -->
+        {{hintText}}</p>
+</div>
+
+<div *ngIf="icon">
+    <button mdl-button mdl-button-type="icon" (click)="setFocus()">
+        <mdl-icon>{{icon}}</mdl-icon>
+    </button>
+    <div class="mdl-textfield__expandable-holder">
+        <input *ngIf="!autocompleteNope" #input class="mdl-textfield__input" [type]="type" [attr.name]="name" [id]="id" [pattern]="pattern ? pattern : '.*'"
+            [attr.min]="min" [attr.max]="max" [attr.step]="step" [placeholder]="placeholder ? placeholder : ''" autocomplete="off"
+            (focus)="onFocus($event)" (blur)="onBlur($event)" (keyup)="onKeyup($event)" (keypress)="onKeyPress($event)" (keydown)="onKeyDown($event)"
+            (paste)="onPaste($event)" [(ngModel)]="value" [disabled]="disabled" [required]="required" [autofocus]="autofocus"
+            [readonly]="readonly" [attr.tabindex]="tabindex" [maxlength]="maxlength">
+        <input *ngIf="autocompleteNope" #input class="mdl-textfield__input" [type]="type" [attr.name]="name" [id]="id" [pattern]="pattern ? pattern : '.*'"
+            [attr.min]="min" [attr.max]="max" [attr.step]="step" [placeholder]="placeholder ? placeholder : ''" autocomplete="off"
+            (focus)="onFocus($event)" (blur)="onBlur($event)" (keyup)="onKeyup($event)" (keypress)="onKeyPress($event)" (keydown)="onKeyDown($event)"
+            (paste)="onPaste($event)" [(ngModel)]="value" [disabled]="disabled" [required]="required" [autofocus]="autofocus"
+            [readonly]="readonly" [attr.tabindex]="tabindex" [maxlength]="maxlength">
+        <label class="mdl-textfield__label" [ngClass]="{'mdl-textfield_readonly':readonly}" [attr.for]="id">{{label}}
+            <i class="fa fa-asterisk" *ngIf="showStar"></i>
+        </label>
+        <span class="mdl-textfield__error">{{errorMessage}}</span>
+    </div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="datepicker">
+    <!--<label class="mgn-btm-ten required_start startdate">{{ dpDisplayName }}<i class="fa fa-asterisk" aria-hidden="true"></i></label>-->
+    <div class="form-inline">
+        <div class="form-group">
+            <div class="input-group" (click)="getElementRef(datepickerInputGroup)" #datepickerInputGroup>
+                <input dateValidate class="form-control" [title]="titleString" [placeholder]="placeholder" (navigate)="onNavigate($event, d); onNavigateEvent($event)"
+                    [name]="pdpName" [(ngModel)]="model" [firstDayOfWeek]="pdpFirstDateOfWeek" ngbDatepicker #d="ngbDatepicker"
+                    [minDate]="minDate" [maxDate]="maxDate" [placement]="placement" [markDisabled]="markDisabled" [required]="pdpRequired" [disabled]="_disabled"
+                    (blur)="onBlur($event)" (focus)="onFocus()" [readonly]="readOnly" [placement]="placement">
+                <span *ngIf="model && showRemoveIcon" class="remove-icon">
+                    <i class="fa fa-times" aria-hidden="true" (click)="model='';onRemovedDate()"></i>
+                </span>
+                <div class="input-group-addon" [attr.disabled]="_disabled" (click)="d.toggle();">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </div>
+                <label class="animate-border"></label>
+            </div>
+            <!-- <ngb-datepicker [hidden]='"enable"!==calStatus' #ngb [markDisabled]="markDisabled" [minDate]="minDate" [firstDayOfWeek]="pdpFirstDateOfWeek"
+            [maxDate]="maxDate" [ngModel]="pickerModel" (ngModelChange)='pickerModelChanged($event)' (navigate)="onNavigate($event, d); onNavigateEvent($event)"></ngb-datepicker> -->
+        </div>
+    </div>
+</div>
+<!-- <pre>{{ model | json}}</pre> -->

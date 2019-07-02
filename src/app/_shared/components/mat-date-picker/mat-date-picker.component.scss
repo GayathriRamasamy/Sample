@@ -1,0 +1,15 @@
+
+
+/deep/.mat-datepicker-toggle {
+  .mat-icon-button {
+    background: url("../../../../assets/img/calendar.png") no-repeat 50% 50%;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    border-radius: 0;
+
+    .mat-datepicker-toggle-default-icon {
+      display: none;
+    }
+  }
+}

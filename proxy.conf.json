@@ -1,0 +1,9 @@
+{
+    "/app-api/**": {
+        "target": "http://172.24.213.11:20201",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/app-api": ""
+        }
+    }
+}

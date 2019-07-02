@@ -1,0 +1,78 @@
+<!-- Bubble chart -->
+<div class="bub-chart-overlay">
+  <div class="bub-chart-overlay-main-header">
+    <div class="bub-chart-overlay-header disable-toggle">
+      <div class="bub-chart-overlay-top-header">
+        <!-- Header title -->
+        <div class="bub-chart-overlay-header-content" [innerHTML]="headerTitle">
+        </div>
+        <!-- Information Icon -->
+        <div class="info-icon">
+          <a id="tooltip">
+            <img src="{{icon['infoIcon']}}" alt="Information-icon">
+            <div class="overlay-infoTip" #bubChartOverlayInfoTip>
+              <table [innerHTML]="infoTip" class="infoTip-content">
+              </table>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Header toggle -->
+      <div class="overlay-header-toggle" *ngIf="enableHeaderToggle">
+        <ul>
+          <li *ngFor="let toggle of headerToggle | keyvalue : sortFn; let i = index" 
+          (click)="activateToggle(toggle.key)"  [ngClass]="{'disableToggle' : toggle.key === activeHeaderToggle}"
+            [class.active-toggle]="activeHeaderToggle === toggle.key">{{toggle.value}}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Overlay  close -->
+    <div class="overlay-close">
+      <i class="material-icons close-icon" (click)="activeModal.dismiss('close')">
+        {{icon['overlayClose']}}
+      </i>
+    </div>
+  </div>
+  <!-- Chart content -->
+  <div class="bub-chart-overlay-content">
+    <!-- Dropdown  -->
+    <div class="bub-chart-overlay-category-selection" *ngIf="hasDropDown" ngbDropdown>
+      <a class="main-tab-link" id="overlay-chart-header-dropdown" ngbDropdownToggle [ngClass]="show">
+        <label class="chart-header-toggle-label">{{activeDropDownValue}}</label><em  class="fa fa-angle-down f-icon
+          fontWeight"></em>
+      </a>
+      <ul class="chart-header-list" ngbDropdownMenu aria-labelledby="overlay-chart-header-dropdown">
+        <li ngbDropdownItem *ngFor="let category of dropDown | keyvalue: sortFn; let i = index;"
+          [ngClass]="{'disableDropdownOption' : category.value === activeDropDownValue}"
+          (click)="getDropDownSelection(category.key, category.value)">{{category['value']}}</li>
+      </ul>
+    </div>
+    <!-- SVG -->
+    <div class="bub-chart-overlay-svg-container">
+      <svg width="650" height="550" >
+        <g class="bub-chart-overlay-group"></g>
+        <g class="bub-chart-overlay-yoy"></g>
+      </svg>
+      <div *ngIf="!chart['isSplit']" class="bub-chart-overlay-right-legend">
+              <div class="bub-chart-overlay-right-legend-title-content">
+                <ul class="bub-legend-title" *ngIf="rightLegendTitle">
+                  <li *ngFor="let title of rightLegendTitle">
+                      <span [innerHTML]="title"></span>
+                  </li>
+                </ul>
+              </div>
+              <div class="bub-chart-overlay-right-legend-body-content">
+                    <ul class="bub-legend-body">
+                        <li *ngFor="let legend of rightLegend">
+                            <span class="legend-circle"  [ngStyle]="{'background-color': legend.color}"></span>
+                            <span class="bub-legend-title" [innerHTML]="legend['template']"></span>
+                        </li>
+                    </ul> 
+              </div>
+          </div>
+    </div>
+    <!-- Overlay-tooltip -->
+    <div class="bub-chart-tooltip" #bubbleChartOverlayTooltip>
+    </div>
+  </div>
+</div>

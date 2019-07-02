@@ -1,0 +1,132 @@
+<div class="cuppa-dropdown" (clickOutside)="closeDropdown()">
+    <div class="selected-list">
+        <div class="c-btn" (click)="toggleDropdown($event)"
+            [ngClass]="{'disabled': settings.disabled,'is-focus': isActive}">
+            <!-- <label class="mdl-textfield__label" [attr.for]="textfieldId">{{ label }}
+                <i class="fa fa-asterisk" *ngIf="showStar"></i>
+            </label> -->
+            <span *ngIf="selectedItems?.length === 0">{{settings.text}}</span>
+            <!-- If it is single value dropdown -->
+            <span *ngIf="settings.singleSelection">
+                <span *ngFor="let item of selectedItems;trackBy: trackByFn;">
+                    {{ item[displayBy] }}
+                </span>
+            </span>
+            <!-- defaultly multi select dropdown -->
+            <div class="c-list" *ngIf="selectedItems?.length > 0 && !settings.singleSelection">
+                <div [title]="item[displayBy]" class="c-token i-tag"
+                    *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"
+                    [hidden]="k > settings.badgeShowLimit-1">
+                    {{ item[displayBy] }}
+                    <span class="material-icons m-remove-icon" [title]="item[displayBy]"
+                        (click)="onItemClick(item,k,$event)">cancel</span>
+                </div>
+                <div class="c-token clear-all" (click)="onClearAll()">
+                    Clear All
+                </div>
+            </div>
+            <span class="countplaceholder" *ngIf="selectedItems?.length > settings.badgeShowLimit"
+                [title]="getSelectedItems(selectedItems)">
+                +{{selectedItems?.length - settings.badgeShowLimit }}
+            </span>
+            <!-- <ng-template #tipContent>
+                <ul *ngIf="selectedItems.length > 0">
+                    <li *ngFor="let eachItem of selectedItems">
+                        <a> &nbsp; {{ eachItem[displayBy] }} &nbsp;</a><br>
+                    </li>
+                </ul>
+            </ng-template> -->
+            <span class="fa" [ngClass]="{'fa-angle-down': !isActive,'fa-angle-up':isActive}"></span>
+        </div>
+    </div>
+    <div class="dropdown-list" [hidden]="!isActive">
+        <div class="list-area" [hidden]="data?.length <= 0">
+            <div class="pure-checkbox select-all"
+                *ngIf="settings.showCheckAll && !settings.singleSelection && !settings.limitSelection"
+                (click)="toggleSelectAll()">
+                <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelectAll"
+                    [disabled]="settings.limitSelection === selectedItems?.length" />
+                <!-- <mdl-checkbox *ngIf="settings.showCheckbox" [(ngModel)]="isSelectAll" [ngModelOptions]="{standalone: true}"
+                [disabled]="settings.limitSelection === selectedItems?.length">
+                </mdl-checkbox> -->
+                <label>
+                    <span [hidden]="isSelectAll">{{settings.selectAllText}}</span>
+                    <span [hidden]="!isSelectAll">{{settings.unSelectAllText}}</span>
+                </label>
+            </div>
+            <div class="list-filter" *ngIf="data?.length > searchLimitItems && !settings?.lazyLoading">
+                <span class="fa fa-search"></span>
+                <input #searchInput type="text" [placeholder]="settings.searchPlaceholderText" [(ngModel)]="filterText">
+                <span *ngIf="filterText" class="fa fa-times" (click)="filterText='';isActive=true"></span>
+            </div>
+            <div class="list-filter" *ngIf="settings.showSearchFilter && settings.lazyLoading">
+                <span class="fa fa-search"></span>
+                <input #searchInput type="text" [placeholder]="settings.searchPlaceholderText"
+                    (keyup)="filterInfiniteList($event)">
+            </div>
+            <ul *ngIf="!settings.groupBy" [style.maxHeight]="settings.maxHeight+'px'" class="lazyContainer">
+                <!-- <span *ngIf="itemTempl">
+                    <li *ngFor="let item of data | listFilter:filter:displayBy; let i = index;" (click)="onItemClick(item,i,$event)" class="pure-checkbox">
+                    <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)"/>
+                    <label></label>
+                    <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                    </li>
+                </span> -->
+                <span *ngIf="!itemTempl && !settings.lazyLoading">
+                    <li *ngFor="let item of data | listFilter:filterText:displayBy;trackBy: trackByIndexFn; let i = index;"
+                        class="pure-checkbox"
+                        [ngClass]="{'is-active': isSelected(item), 'add-height': item[displayBy] === ''}"
+                        (click)="onItemClick(item,i,$event)">
+                        <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)"
+                            [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)" />
+                        <!-- <mdl-checkbox *ngIf="settings.showCheckbox" [(ngModel)]="item.isSelected" [ngModelOptions]="{standalone: true}"
+                        [disabled]="settings.limitSelection === selectedItems?.length && !isSelected(item)" (click)="onItemClick(item,i,$event)">
+                        <label>{{item[displayBy]}}</label>
+                    </mdl-checkbox> -->
+                        <label>{{item[displayBy]}}</label>
+                    </li>
+                </span>
+                <span *ngIf="!itemTempl && settings.lazyLoading">
+                    <div [ngStyle]="{'height':totalHeight+'px'}" style="position: relative;">
+                        <li *ngFor="let item of chunkArray | listFilter:filterText:displayBy; let i = index;trackBy: trackByIndexFn;"
+                            (click)="onItemClick(item,i,$event)" style="position: absolute;width: 100%;"
+                            class="pure-checkbox" [styleProp]="chunkIndex[i]">
+                            <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)"
+                                [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)"/>
+                            <!-- <mdl-checkbox *ngIf="settings.showCheckbox" [(ngModel)]="item.isSelected"
+                                [ngModelOptions]="{standalone: true}"
+                                [disabled]="settings.limitSelection === selectedItems?.length && !isSelected(item)">
+                            </mdl-checkbox> -->
+                            <label>{{ item[displayBy] }}</label>
+                        </li>
+                    </div>
+                </span>
+            </ul>
+            <div *ngIf="settings.groupBy" [style.maxHeight]="settings.maxHeight+'px'" style="overflow: auto;">
+                <ul *ngFor="let obj of groupedData ; let i = index;" class="list-grp">
+                    <h4 *ngIf="(obj.value | listFilter:filterText:displayBy ).length > 0">{{obj.key}}</h4>
+                    <!-- <span *ngIf="itemTempl" >
+                    <li *ngFor="let item of obj.value | listFilter:filter:displayBy; let i = index;" (click)="onItemClick(item,i,$event)" class="pure-checkbox">
+                        <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)"/>
+                        <label></label>
+                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                    </li>
+                    </span> -->
+                    <span *ngIf="!itemTempl">
+                        <li *ngFor="let item of obj.value | listFilter:filterText:displayBy; let i = index;"
+                            class="pure-checkbox" (click)="onItemClick(item,i,$event)">
+                            <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)"
+                            [disabled]="settings.limitSelection === selectedItems?.length && !isSelected(item)"/>
+                            <!-- <mdl-checkbox *ngIf="settings.showCheckbox" [(ngModel)]="item.isSelected"
+                                [ngModelOptions]="{standalone: true}"
+                                [disabled]="settings.limitSelection === selectedItems?.length && !isSelected(item)">
+                            </mdl-checkbox> -->
+                            <label>{{item.itemName}}</label>
+                        </li>
+                    </span>
+                </ul>
+            </div>
+            <!-- <h5 class="list-message" *ngIf="data?.length == 0">{{settings.noDataLabel}}</h5> -->
+        </div>
+    </div>
+</div>

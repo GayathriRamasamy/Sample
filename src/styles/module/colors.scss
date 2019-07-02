@@ -1,0 +1,152 @@
+/*start hex colors*/
+
+$warmgrayplusone: #363630;
+$warmgrayminusone: #999990;
+$warmgrayminustwo: #ccccc7;
+$warmgrayfour: #eeeeed;
+$warmgrayminusfive: #f3f3f2;
+$blue: #0138a0;
+$bluehover: #e4e4e4;
+$blueactive: #cacaca;
+$brightblue: #0073f0;
+$brightbluehover: #c2d7dd;
+$brightgreen: #00c2d1;
+$green: #2fbc53;
+$yellow: #f5bf04;
+$red: #e8503e;
+$white: #ffffff;
+$lightblue: #f3f5fb;
+$grayminusthree: #a9acb1;
+$grayminustwo: #767676;
+$grayminusfour: #b7b5a4;
+$oldlavender: #7f7f74;
+$bluelagoon: #005870;
+$dimgray: #666666;
+$aliceblue: #eceeef;
+$snowdrift: #dcdcd9;
+$ivory: #f9f8ee;
+$mabel: #c7e2e1;
+$mountainmeadow: #09ad7e;
+$gainsboro: #e0e0e0;
+$lightbluedark: #aaddeb;
+$pattensblue: #d1edf4;
+$halfandhalf: #eae5c4;
+$matterhorn: #4b4b4b;
+$lightcoral: #ef897d;
+$geraldine: #ed7668;
+$sweetpink: #f0968b;
+$tapa: #7f7f74;
+$mabel: #c7e2e1;
+$linkwater: #bfc1c5;
+$wildwatermelon: #f5515f;
+$carmine: #9f031b;
+$matterhorn: #4c4c4c;
+$buttonhover: #e3f0fd;
+$opacity-pt-six: 0.66;
+$opacity-pt-eight: 0.88;
+$ironsidegrey: #6c6c61;
+$silversand: #c1c1bb;
+$jumbo: #87877d;
+$gray80: #cccccc;
+$gray60: #999999;
+$gray20: #333333;
+$snowdrift: #e1e1de;
+$gainsboro: #e5e5e5;
+/*end hex colors*/
+
+/*start rgba colors*/
+
+$subheadlsthover: rgba(255, 255, 255, 0.11);
+$subheadlstactive: rgba(254, 254, 254, 0.55);
+$selectcheckbg: rgba(199, 226, 225, 0.44);
+$selectcheckbghov: rgba(199, 226, 225, 0.22);
+$blackptthrefiv: rgba(0, 0, 0, 0.35);
+$blackptfiv: rgba(0, 0, 0, 0.5);
+$whitepteghteght: rgba(255, 255, 255, 0.88);
+$whiteptfvefve: rgba(255, 255, 255, 0.55);
+$whitepteleven: rgba(255, 255, 255, 0.11);
+$whiteptthirtthre: rgba(255, 255, 255, 0.33);
+$blackptfve: rgba(0, 0, 0, 0.5);
+$mairepteleven: rgba(13, 13, 12, 0.11);
+$mairepttwnttwo: rgba(13, 13, 12, 0.22);
+$maireptone: rgba(13, 13, 12, 0.1);
+$mairepttwo: rgba(13, 13, 12, 0.2);
+$lghtblueptfvefve: rgba(169, 220, 234, 0.55);
+$blackptthrefve: rgba(0, 0, 0, 0.35);
+$lghtblueptthrefve: rgba(169, 220, 235, 0.5);
+$brightbluehover: rgba(0, 114, 240, 0.77);
+$brightbluefocus: rgba(13, 13, 12, 0.44);
+/*end rgba colors*/
+
+/*start box shadows*/
+
+$subheadshadow: inset 0 -3px 0 0 $warmgrayminusfive;
+$selectcheckshad: inset 0 -1px 0 0 $warmgrayfour;
+/*end box shadows*/
+
+.warmgrayplusone {
+  color: $warmgrayplusone;
+}
+
+.warmgrayminusone {
+  color: $warmgrayminusone;
+}
+
+// .green {
+//   color: $green !important;
+//   background-color: transparent;
+// }
+
+// .red {
+//   color: $red !important;
+//   background-color: transparent;
+// }
+
+$iff-btn-primary: #eae5c4;
+$iff-btn-primary-hover: #ded8b1;
+$iff-primary: #7f7f74;
+/*Primary Dark Grey Color*/
+
+$iff-btn-clr-hover: #65675e;
+$iff-input-label-txt: #a0a098;
+$iff-input-txt: #333333;
+$iff-link-clr: #0138a0;
+$iff-link-clr-hover: #002976;
+$black: #000000;
+// red
+$freespeech-red: #b62e00;
+// dropdown select
+$input-border-color: $gainsboro;
+// Black Theme
+$iff-top-bg: #24235f;
+$iff-left-bg: #2e354c;
+$iff-grey-text: #838690;
+$iff-dark-hover: #1c2233;
+$iff-light-green: #17d895;
+$iff-text-grey: #b2b2b2;
+$iff-text-grey10: #b7b7b7;
+//grey
+$nobel: #b6b6b6;
+//button style
+$boxshadow: 0 6px 10px 0 rgba(0, 0, 0, 0.15);
+$iff-board-bg: #fbfbfc;
+$iff-board-bdr: #f3f3fb;
+$iff-green-btn: #00d994;
+$iff-blue-light: #7881bd;
+$iff-blue-1: #c6c6e5;
+$iff-blue-2: #7881bd;
+$iff-blue-3: #545a93;
+$iff-blue-4: #1a194b;
+$iff-grey-line: #eaeaec;
+$iff-grey-label: #aba8a8;
+$iff-header-1:#66b74c;
+$iff-orange-1:#fdb813;
+$iff-bg1:#f5f5f5;
+$iff-greyplus1:#585858;
+$iff-greyplus2:#757575;
+$iff-greyplus3:#a4a4a4;
+$iff-greyplus4:#a1a1a1;
+$iff-violet1:#b1b4ef;
+
+$iff-leftgrey1:#343434;
+$iff-leftgrey2:#8a8a8a;

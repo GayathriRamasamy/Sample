@@ -1,0 +1,159 @@
+<!-- First Level Tabs  and Preset Filter,Save Filter Buttons-->
+<div class="row">
+  <div #tab class="col-md-8 col-sm-8 col-lg-8">
+    <ul class="main-tab" *ngIf="firstLevelTab">
+      <li #tabAll class="main-tab-item" *ngIf="enableAll">
+        <a class="main-tab-content wdth100" id="tooltip" [ngClass]="{'is-active' : selectedTab === allKey }"
+          (click)="navigateTab(allKey)">{{allId}}
+          <span class="tooltiptext">{{allDesc}}</span>
+        </a>
+      </li>
+      <li class="main-tab-item">
+        <div (click)="navigateTab(tabdata)" *ngFor="let tabdata of firstLevelTab | slice: 0: limitToMore">
+          <div class="d-flex" id="tooltip" #list>
+            <img *ngIf="tabdata.image" class="main-tab-image" src={{tabdata.image}}>
+            <a class="main-tab-content"
+              [ngClass]="{'is-active' : selectedTab === tabdata.value,'wdth100': !tabdata.image }">{{tabdata.value}}
+            </a>
+            <span *ngIf="tabdata.desc" class="tooltiptext">
+              {{tabdata.desc}}</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- First level tab Dropdown -->
+      <li class="main-tab-item" ngbDropdown *ngIf="firstLevelTab.length > limitToMore">
+        <a class="main-tab-content  wdth40" id="mainTabDropDown" ngbDropdownToggle>
+          <em  class="fa fa-angle-down f-icon fontWeight"></em>
+        </a>
+        <ul ngbDropdownMenu class="dropdown-menu tabdropdown cus-dropdown-menu" aria-labelledby="mainTabDropDown">
+          <li ngbDropdownItem class="tabdropdown-item"
+            *ngFor="let tabdata of firstLevelTab | slice: limitToMore : firstLevelTab.length; let i = index"
+            (click)="navigateTab(tabdata);moveTabs(tabdata,i);">
+            <div class="tabdropdown-link">
+              <div class="d-flex">
+                <img *ngIf="tabdata.image" class="main-tab-image" src={{tabdata.image}}>
+                <a class="tabdropdown-content cus-tooltip-wrap" id="tooltip">
+                  <p class="dropdown-text">
+                    <span>{{tabdata.value}}</span>
+                    <br>
+                    <span class="overflowH">{{tabdata.desc}}</span>
+                  </p>
+                  <span class="tooltiptext">{{tabdata.desc}}</span>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li #filterTab class="main-tab-item" (click)="showFilter=!showFilter">
+        <a class="main-tab-content  wdth40" [ngClass]="{'is-active': showFilter}">
+          <i class="fa fa-sliders"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-lg-4 p-0">
+    <div class="filterDivision">
+      <div ngbDropdown autoClose="outside">
+        <button class="button is-primary" id="dropdownBasic1" ngbDropdownToggle>{{buttons.presetFilterBtn}}
+          <i id="margin6" class="fa fa-angle-down" id="dropdownPresetFilter"></i>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu-search top-0">
+          <div class="search">
+            <input type="text" placeholder={{labels.searchPlaceholder}} (keyup)=filterSearchNames($event) 
+            [(ngModel)]="savedSearchKey" class="preset-search"
+            />
+              <i aria-hidden="true" class="fa fa-search searchingElement" [ngClass]="savedSearchKey?.length === 0 ? 'showEl' : 'hideEl'"></i>
+              <i aria-hidden="true" class="fa fa-times searchingElement-close" [ngClass]="savedSearchKey?.length > 0 ? 'showEl' : 'hideEl'"
+                  (click)="savedSearchKey='';"></i>
+          </div>
+          <div class="presetFilter-item-list">
+            <ng-container *ngFor="let item of lastSearch">
+              <button class="presetFilter-item" title="{{item.SearchName}}">{{item.SearchName}}</button>
+            </ng-container>
+          </div>
+          <div class="filter-item-list">
+            <ng-container *ngFor="let item of presetFilters | matchSorter:'SearchName':savedSearchKey">
+              <button class="dropdown-item" title="{{item.SearchName}}"
+                (click)="onSavedPresetSearch(item);">{{item.SearchName}}</button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <button class="button is-secondary cursor-pointer" [disabled]="!(selectedFacetCollection.length > 0)"
+        [ngClass]="{'active' : selectedFacetCollection.length>0}" (click)=onSavedSearchClick()>
+        <i class="fa fa-filter" aria-hidden="true"></i>{{buttons.saveBtn}}</button>
+    </div>
+  </div>
+</div>
+
+<!-- Filters -->
+<div>
+  <selected-facet *ngIf="selectedFacetCollection.length > 0" [facets]="selectedFacetCollection"
+    (onChange)="onRemoveSelectedFacet($event)">
+  </selected-facet>
+</div>
+
+<!-- Filters -->
+<!-- <ng-container *ngIf='showFilter'> -->
+  <div *ngIf="isEnableSpdfilter">
+    <div id="Test" [ngClass]="{'displayNone': !showFilter}">
+      <app-scentPortfolio-filter (onFilterChange)="onChangeFilter($event)" [selectedFacets]='selectedFacetCollection'
+        (onCancelFilters)="onCancelFilters($event)" (onApplyFilters)="onApplyFilters($event)" (onResetFilters) ='onResetFiters()' [key]='key'>
+      </app-scentPortfolio-filter>
+    </div>
+  </div>
+<!-- </ng-container> -->
+
+<!-- Second row (Date Range Dropdown, Download,Second level Tabs) -->
+<div class="row ">
+  <div class="marginTab d-flex justify-content-end width100 height40">
+    <div class="margin7">
+      <!-- date label and date ranges drop down -->
+      <span *ngIf="isEnableDate" class="label">{{labels.dateLabel}}:&nbsp;</span>
+      <div class="d-inline-flex">
+        <div ngbDropdown placement="bottom-right" class="custom-border">
+          <div id="dateRangeDropdown" ngbDropdownToggle *ngIf="isEnableDate">
+            <label class="darkLabel">{{selectedDateRange}}</label>
+            <span>
+              <img [src]="icons.calenderIcon" class="f-icon">
+              <ul ngbDropdownMenu class="date-dropdown-menu" aria-labelledby="dateRangeDropdown">
+                <li ngbDropdownItem class="date-dropdown-menu-item">{{selectedDateRange}}
+                  <img [src]="icons.calenderIcon" class="f-icon fltRight">
+                </li>
+                <li ngbDropdownItem class="date-dropdown-menu-item"
+                  *ngFor="let dateRange of dateRanges | keyvalue :sortFn"
+                  [ngClass]="{'disableEvent' : dateRange.value === selectedDateRange , 'enableEvent' : dateRange.key === 'customRange' }"
+                  (click)="pickDateRange(dateRange)">{{dateRange.value}}</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+
+        <!-- Print and download -->
+        <div class="dropdown d-margin" ngbDropdown placement="bottom-right">
+          <img [src]="icons.downloadIcon" id="export" ngbDropdownToggle class="p-icon">
+          <ul ngbDropdownMenu class="date-dropdown-menu" aria-labelledby="export">
+            <li ngbDropdownItem class="date-dropdown-menu-item" (click)="onPrintList()">{{labels.downloadLabels[0]}}
+            </li>
+            <li ngbDropdownItem class="date-dropdown-menu-item" (click)="exportExcel()">{{labels.downloadLabels[1]}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Second level tab -->
+    <ul class="tabs tabs-dark" *ngIf="secondLevelTab">
+      <li class="tabs-item mr-0" *ngFor="let tabdata of secondLevelTab | keyvalue :sortFn"
+        (click)="navigateSecLvlTab(tabdata)">
+        <a class="tabs-link" [ngClass]="{'is-active' : selectedSecLvlTabValue === tabdata.value }">{{tabdata.value}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

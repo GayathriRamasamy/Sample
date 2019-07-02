@@ -1,0 +1,44 @@
+@import '../../../../styles/dashboard/filter';
+// @import '../../../../styles/dashboard/override';
+
+ul {
+    padding: 0px !important;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    li{
+        margin-bottom: 10px;
+        line-height: 20px;
+        height: 20px;
+        .toggle-txt{
+            display: inline-block;
+            width: calc(100% - 42px);
+            font-size: 14px
+        }
+        .mdl-switch {
+            padding-left: 38px;
+            width: 38px;
+        }
+    }
+}
+
+
+
+.padding-right-10 {
+    padding: 0px 0px 0px 10px;
+}
+
+.padding10 {
+    padding: 0px 10px;
+}
+
+.width15 {
+    width: 15% !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid grey;
+}
+
+.margin-right-10 {
+    margin: 0px 0px 0px 10px;
+}

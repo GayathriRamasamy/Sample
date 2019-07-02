@@ -1,0 +1,271 @@
+
+.bub-chart-header {
+  flex-direction: column;
+  background: #f3f3f3;
+}
+
+.bub-chart-header {
+  height: 40px;
+  padding: 0px 0px 0px 15px;
+}
+.bub-chart-content {
+  height: 279px;
+  border-top: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+}
+
+.bub-chart-top-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bub-chart-header-content {
+  height: 21px;
+  color: #363630;
+  font-family: Georgia;
+  font-size: 18px;
+  letter-spacing: 0.28px;
+  line-height: 21px;
+  margin: 0px 5px !important;
+  display: inline-flex;
+}
+
+.disable-toggle {
+  margin: auto 0px;
+}
+
+.bub-chart-header-content h5 {
+  font-family: Georgia;
+  font-size: 18px !important;
+  margin: 0px !important;
+}
+
+.header-title {
+  font-family: Georgia;
+  font-size: 18px !important;
+  margin: 0px !important;
+  padding: 0px 8px !important;
+  margin-top: 2px !important;
+}
+
+.info-icon {
+  margin: auto 0px;
+  margin-top: 3px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.header-toggle {
+  margin-top: -6px;
+}
+
+.header-toggle ul {
+  list-style: none;
+  display: inline-flex;
+  padding: 0px !important;
+  margin: 0px !important;
+  height: 14px;
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  line-height: 14px;
+}
+
+.header-toggle ul li {
+  padding: 0px 5px !important;
+  border-right: 1px solid grey;
+}
+
+.header-toggle ul li:last-child {
+  border: none !important;
+}
+
+.bub-chart-overlay-option {
+  display: flex;
+  justify-content: flex-start;
+  height: 40px;
+}
+
+.bub-chart-overlay-icon i {
+  color: #81827b;
+}
+
+.bub-chart-overlay-icon {
+  width: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.bub-chart-category-selection {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.margin-top-five {
+  margin: 5px 0px !important;
+}
+
+.bub-chart-svg {
+  display: flex;
+}
+
+#tooltip .tooltiptext tr td {
+  padding: 5px !important;
+}
+
+.bub-chart-overlay-icon i {
+  cursor: pointer;
+}
+
+.header-toggle ul li {
+  cursor: pointer;
+}
+
+.active-toggle {
+  font-weight: bold;
+}
+
+.infoTip {
+  font-family: Roboto medium;
+  min-width: 250px;
+  left: -500%;
+  font-size: 12px;
+  padding: 10px;
+  display: none;
+  background: white;
+  position: absolute;
+  bottom: 120%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
+#tooltip:hover .infoTip {
+  display: inline;
+  opacity: 1;
+}
+
+.bub-chart-category-selection .chart-header-toggle-label {
+  cursor: pointer;
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.show {
+  .fa-angle-down {
+    transform: rotate(180deg);
+  }
+}
+
+.chart-header-list ul {
+  position: fixed;
+  box-shadow: none !important;
+}
+
+.dropdown-menu {
+  box-shadow: none !important;
+}
+
+.chart-header-list li:hover {
+  color: #00addc;
+}
+
+.chart-header-list li {
+  cursor: pointer;
+  padding: 5px 5px 5px 10px;
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+}
+
+.chart-header-list {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  // top : 24px !important;
+  // left : 82px !important;
+  // transform: translate(25px, 10px);
+}
+
+:host /deep/ .chart-tooltip-content table {
+  width: 100%;
+}
+
+
+#chart-header-dropdown {
+  margin: auto;
+  left: 83px !important;
+  top : 23px !important;
+}
+
+.bub-legend-title,
+.bub-legend-body {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+
+.bub-legend-body li {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.bub-legend-title {
+  margin: auto 0;
+}
+
+.bub-chart-right-legend {
+  width: 41%;
+  margin: 20px auto auto 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bub-chart-right-legend-title-content {
+  width: 100%;
+}
+
+.bub-chart-right-legend-body-content {
+  width: 100%;
+  overflow: auto;
+  scroll-behavior: auto;
+  height: 150px;
+}
+
+.disableDropdownOption {
+  color: #cfcfcf !important;
+  pointer-events: none;
+}
+
+.disableToggle {
+  pointer-events: none;
+}
+
+.searchIcon{
+  font-size: 100px;
+  height: 18px;	width: 18px;
+}
+
+.bubble-width {
+  width: 57%
+}
+.bubble-width-print {
+  width: 100%
+}

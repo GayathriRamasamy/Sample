@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-TOX-Fail</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-TOX-Fail" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,2 L4,5.65217391 L4,11.1304348 C4,16.173913 7.36842105,20.8695652 11.9157895,22 L12,22 L12.0842105,22 C16.5473684,20.8695652 20,16.173913 20,11.1304348 L20,5.65217391 L12,2 Z" id="Shape" stroke="#B62E00" stroke-width="1.25" fill-rule="nonzero"></path>
+        <rect id="Rectangle" fill="#B62E00" transform="translate(12.123922, 11.977476) rotate(45.000000) translate(-12.123922, -11.977476) " x="7.12392225" y="11.3524756" width="10" height="1.25"></rect>
+        <rect id="Rectangle" fill="#B62E00" transform="translate(12.123922, 11.977476) scale(-1, 1) rotate(45.000000) translate(-12.123922, -11.977476) " x="7.12392225" y="11.3524756" width="10" height="1.25"></rect>
+    </g>
+</svg>

@@ -1,0 +1,178 @@
+<div>
+  <header *ngIf="!isPrintLayout" id="searchPrintPage">
+      <div class="container-fluid height-60">
+          <div class="row height-60">
+              <div class="col-md-3 height-60 padding-left-0">
+                  <ul class="list-inline header-bar">
+                      <li [style.visibility]="currentUser ? 'visible' : 'hidden'">
+                          <a (click)="isMenuOpen=!isMenuOpen">
+                              <i class="fa fa-bars" aria-hidden="true"></i>
+                          </a>
+                      </li>
+                      <li class="logo-section">
+                          <a routerLink="/home" class="hovernon">
+                              <!--<i class="fa fa-home" aria-hidden="true"></i>-->
+                              <!-- <img src="../assets/img/iff-logo.png" alt="iff-logo" title="IFF">-->
+                              <div class="img-section">
+                                  <img class="margin-left-2" src="../assets/img/logo_iff.png" alt="IFF" />
+                              </div>
+                              <!-- <li class="env-class" *ngIf="envName!=='PROD'">{{envName}}</li> -->
+                          </a>
+                      </li>
+
+                  </ul>
+              </div>
+              <div class="col-md-6 height-60" [style.visibility]="currentUser ? 'visible' : 'hidden'">
+                  <search-text></search-text>
+              </div>
+              <div class="col-md-3 height-60 padding-right-0">
+                  <ul class="list-inline header-bar pull-right">
+                      <li style="display: none">
+                          <a>
+                              <i class="fa fa-envelope" aria-hidden="true"></i>
+                          </a>
+                      </li>
+                      <li style="display: none">
+                          <a>
+                              <i class="fa fa-check-circle" aria-hidden="true"></i>
+                          </a>
+                      </li>
+                      <li ngbDropdown class="profile-settings">
+                          <a ngbDropdownToggle>
+                              <div class="img-section">
+                                  <img [src]="userPhotoUrl" class="avatar_photo" onerror="this.src='../assets/img/default_user.png'" width="20" height="20"
+                                      alt="User" />
+                              </div>
+                          </a>
+                          <div ngbDropdownMenu>
+                              <button class="dropdown-item" onClick="window.open('/profilesettings','_self')" >
+                                  Profile Settings
+                              </button>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="sidebar" id="sidebarshow" [ngClass]="{'active': isMenuOpen}">
+          <div class="sidebar-section">
+              <div class="profile-bar">
+                  <div class="img-section">
+                      <img [src]="userPhotoUrl" class="avatar_photo" onerror="this.src='../assets/img/default_user.png'" width="35" height="35"
+                          alt="User" />
+                      <div class="close-menu" (click)="isMenuOpen=!isMenuOpen">
+                          <i class="fa pu-fa-close"></i>
+                      </div>
+                  </div>
+                  <p id="dynatrace-user" class="username-p">{{currentUser?.DisplayName}}</p>
+                  <p class="location-p">
+                      {{ OfficeLocation }}
+                      <i class="fa fa-angle-right pull-right"></i>
+                  </p>
+              </div>
+              <ul class="nav-icons-ul top" (click)="isMenuOpen=!isMenuOpen">
+                  <li>
+                        <a href="javascript:void(0)" onClick="window.open('/home','_self')">
+                          <i class="fa pu-fa-home" aria-hidden="true"></i>Home</a>
+                  </li>
+                  <li wipTemp *ngIf="managementDashPermission?.WriteFlag">
+                      <a href="javascript:void(0)" onClick="window.open('/dashboard/managementDashboard','_self')">
+                          <i class="fa pu-fa-mgnt-dasb" aria-hidden="true"></i>Management Dashboard</a>
+                  </li>
+                  <li *ngIf="scentportfolioDashPermission?.WriteFlag">
+                      <a href="javascript:void(0)" onClick="window.open('/dashboard/scentPortfolioDashboard','_self')">
+                          <i class="fa pu-fa-mgnt-dasb" aria-hidden="true"></i>Scent Portfolio Dashboard</a>
+                  </li>
+                  <li wipTemp>
+                      <a href="javascript:void(0)" onClick="window.open('/dashboard','_self')">
+                          <i class="fa pu-fa-mgnt-dasb" aria-hidden="true"></i>My Dashboard</a>
+                  </li>
+                  <li>
+                      <a routerLink="/search/fragrances">
+                          <i class="fa pu-fa-frag" aria-hidden="true"></i>Fragrances</a>
+                  </li>
+                  <li>
+                      <a routerLink="/search/scentportfolios">
+                          <i class="fa pu-fa-scent" aria-hidden="true"></i>Scent Portfolios</a>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0)" onClick="window.open('/ge/evaluationlist','_self')">
+                          <i class="fa pu-fa-group" aria-hidden="true"></i>Group Evaluations</a>
+                  </li>
+                  <li>
+                      <a routerLink="/admin">
+                          <i class="fa pu-fa-home" aria-hidden="true"></i>Admin</a>
+                  </li>
+                  <li class="line">
+                      <hr>
+                  </li>
+              </ul>
+              
+              <ul class="nav-icons-ul bottom">
+                  <!--  -->
+                  <li>
+                      <a (click)="LinksMenu=!LinksMenu">
+                          <!-- <i class="fa fa-external-link" aria-hidden="true"></i> -->
+                          Links
+                          <i class="fa right-arrow" [ngClass]="{'fa-angle-up': LinksMenu, 'fa-angle-down': !LinksMenu}"></i>
+                      </a>
+                      <ul *ngIf="LinksMenu">
+                          <li class="second-lvl">
+                              <a (click)="redirectExternalURL('http://www.rd.iff.com/botanicals/')"
+                                  target="_blank">Living Library</a>
+                          </li>
+                          <li class="second-lvl">
+                              <a (click)="redirectExternalURL('http://apps.iff.com/CFT/')" target="_blank">Scent Emotions</a>
+                          </li>
+                          <!-- <li class="second-lvl" wipTemp>
+                              <a (click)="redirectExternalURL('http://vordev1.iff.com/')"
+                                  target="_blank" class="">Mona Lisa</a>
+                          </li> -->
+
+                      </ul>
+                  </li>
+                  <!-- <li><a (click)="redirectExternalURL('http://vortest1.iff.com/')" target="_blank" class="ng-hide">Mona Lisa</a></li>
+                  <li><a (click)="redirectExternalURL('http://monalisa3.iff.com')" target="_blank" class="ng-hide">Mona Lisa</a></li> -->
+                  <!-- <li wipTemp>
+                      <a>
+                           <i class="fa fa-life-bouy" aria-hidden="true"></i>
+                          Help & Support</a>
+                  </li>
+                  <li wipTemp>
+                      <a (mouseover)="isExternalLinkOpen=!isExternalLinkOpen" (click)="invokeSilentRefresh()">
+                           <i class="fa fa-life-bouy" aria-hidden="true"></i>
+                          About</a>
+                  </li> -->
+                  <!-- <li wip>
+                      <a routerLink="/search" class="bdr-btm">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                          Search</a>
+                  </li> -->
+              </ul>
+              <!-- <div *ngIf="isExternalLinkOpen" wip>
+                  <ul>
+                      <li>
+                          <a (click)="redirectExternalURL('http://usubnjswbsv1.global.iff.com:90/docs/e2eTest')">
+                              <i class="fa fa-external-link" aria-hidden="true"></i>End-to-End Test Results</a>
+                      </li>
+                      <li>
+                          <a (click)="redirectExternalURL('http://usubnjswbsv1.global.iff.com:90/docs/ServiceTest/')" target="_blank">
+                              <i class="fa fa-external-link" aria-hidden="true"></i>API Performance Test Results</a>
+                      </li>
+                      <li>
+                          <a (click)="redirectExternalURL('http://usubnjswbsv1.global.iff.com:90/docs/UnitTestCoverage/html/')"
+                              target="_blank">
+                              <i class="fa fa-external-link" aria-hidden="true"></i>Unit Test & Code Coverage Results</a>
+                      </li>
+                  </ul>
+              </div> -->
+          </div>
+      </div>
+  </header>
+
+</div>
+<div>
+    <router-outlet>
+    </router-outlet>
+</div>
+

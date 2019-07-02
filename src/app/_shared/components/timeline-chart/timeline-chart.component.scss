@@ -1,0 +1,11 @@
+.vis-timeline {
+    background: lightgray;
+}
+
+:host /deep/ .vis-label{
+    display: none !important;
+}
+
+:host /deep/ .vis-foreground .vis-group{
+border-bottom: none !important;
+}

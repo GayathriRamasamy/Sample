@@ -1,0 +1,11 @@
+@import '../../../styles/colors';
+@import '../../../styles/tabsec';
+
+.fragrance-results{
+    padding: 20px 30px;
+}
+.disabled-li {
+    pointer-events: none;
+    opacity: 0.3;
+    background-color: gray;
+}

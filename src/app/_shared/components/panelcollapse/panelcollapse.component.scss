@@ -1,0 +1,42 @@
+.margin0 {
+    margin: 0;
+  }
+  
+  .mgn-btm-ten {
+    margin-bottom: 10px !important;
+  }
+  
+  h3 {
+    // font-family: $publicoheadlinemedium;
+    // font-size: 24px;
+    // font-weight: 500;
+    // font-style: normal;
+    // font-stretch: normal;
+    // line-height: 28px;
+    // letter-spacing: normal;
+    position: relative;
+  
+    .fa-caret-down {
+      position: absolute;
+      left: -15px;
+      top: 3px;
+      font-size: 16px;
+      // color: $warmgrayminustwo;
+    }
+  
+    .fa-caret-right {
+      @extend .fa-caret-down;
+    }
+  
+    &.accordion-h {
+      cursor: pointer;
+      padding-left: 15px;
+      margin-left: -15px !important;
+  
+      .fa-caret-down,
+      .fa-caret-right {
+        left: 0px;
+      }
+    }
+  }
+  

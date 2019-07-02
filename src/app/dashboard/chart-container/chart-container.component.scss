@@ -1,0 +1,70 @@
+
+.show {
+  .fa-angle-down {
+      transform: rotate(180deg);
+  }
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+// YEAR ON YEAR TOGGLE
+.toggle-YOY{
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mdl-switch__label {
+  margin: auto 10px auto 10px;
+  left: 0px;
+  cursor: context-menu;
+}
+
+
+.toggle-content{
+  margin:auto 5px auto 0px;
+}
+
+:host ::ng-deep .mdl-switch__label {
+  left: 0 !important;
+  color: #FFFFFF !important;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+:host ::ng-deep .mdl-switch__thumb {
+  right: 16px;
+  left: auto !important;
+  transition-property: right !important;
+  background: #FFFFFF  !important;
+  top: 0px !important;
+}
+:host ::ng-deep .mdl-switch-ge .mdl-switch__track {
+  height: 20px !important;
+}
+
+:host ::ng-deep .mdl-switch-ge.has-label-right.is-checked .mdl-switch__thumb {
+  background: #FFFFFF !important;
+}
+
+:host ::ng-deep .mdl-switch-ge.is-checked .mdl-switch__label {
+  font-weight: bold;
+}
+
+.header-content{
+  .dropdown-item{
+    color:#ffffff;
+    &:active{
+      background-color: transparent;
+      font-weight: bold
+    }
+    &:hover{
+      background-color: transparent;   
+    }
+  }
+}

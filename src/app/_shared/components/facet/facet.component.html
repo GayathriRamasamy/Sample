@@ -1,0 +1,18 @@
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <li *ngIf="title">
+                    <span class="toggle-txt" [ngClass]="{'bold': isAllSelect}">{{ title }}</span>
+                    <mdl-switch (click)="onSelectAll(isAllSelect)" mdl-ripple [(ngModel)]="isAllSelect"></mdl-switch>
+                </li>
+                <li *ngFor="let option of filterOptions;"
+                    [ngClass]="{'disabled-toggle':facetTitDisable, 'disabled-li' : option.isDisabled}">
+                    <span class="toggle-txt" [ngClass]="{'bold': option.isChecked}">{{ option[displayBy] | titlecase }}
+                    </span>
+                    <mdl-switch (click)="onClick(option)" mdl-ripple [(ngModel)]="option.isChecked"></mdl-switch>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

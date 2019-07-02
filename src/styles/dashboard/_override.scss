@@ -1,0 +1,144 @@
+@import "./colors";
+.block {
+  &-heading {
+    font-family: "Georgia";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: $warmgrayplusone;
+    letter-spacing: 0.28px;
+    margin: 0 0 24px;
+  }
+}
+
+.text-break {
+  word-break: break-word;
+}
+
+/deep/.mdl-switch {
+  $self: &;
+  &-ge {
+    display: block;
+    width: 37px;
+    height: 22px;
+    padding-left: 47px !important;
+    &.has-label-right {
+      padding: 0 47px 0 0 !important;
+    }
+    &.is-wide {
+      width: 100%;
+    }
+    &.has-no-label {
+      padding-left: 28px !important;
+    }
+  }
+  &__track {
+    #{$self}-ge & {
+      background-color: $input-border-color;
+      height: 100%;
+      width: 100%;
+    }
+    #{$self}-ge.is-wide & {
+      width: 37px;
+    }
+    #{$self}-ge.is-checked & {
+      background-color: $toggle-color;
+    }
+    s #{$self}-ge.is-disabled & {
+      background-color: $warmgrayminusfive;
+    }
+    #{$self}-ge.has-label-right & {
+      left: auto;
+      right: 0;
+    }
+  }
+  &__label {
+    #{$self}-ge & {
+      font-size: 14px;
+      line-height: 22px;
+      color: $warmgrayplusone;
+      left: 0;
+      display: flex;
+      font-weight: normal;
+    }
+    #{$self}-ge.text-white & {
+      color: $white;
+    }
+    #{$self}-ge.is-checked & {
+      font-weight: 700;
+    }
+    #{$self}-ge.is-disabled & {
+      color: $iff-primary;
+    }
+  }
+  &__thumb {
+    #{$self}-ge & {
+      width: 20px;
+      height: 20px;
+    }
+    #{$self}-ge.is-checked & {
+      left: 16px;
+      background-color: $white;
+    }
+    #{$self}-ge.is-disabled & {
+      background-color: $white;
+    }
+    #{$self}-ge.has-label-right & {
+      left: auto;
+      right: 16px;
+    }
+    #{$self}-ge.has-label-right.is-checked & {
+      right: 1px;
+    }
+  }
+  &__ripple-container {
+    margin-left: 76% !important;
+  }
+  &__ripple-container {
+    #{$self}-ge & {
+      margin-left: 76% !important;
+    }
+    #{$self}-ge.is-checked & {
+      margin-left: 76% !important;
+      transition-property: right !important;
+      transition-duration: 2s;
+    }
+  }
+}
+.mdl-switch__thumb {
+  top: 0;
+}
+
+.list {
+  $self: &;
+  &-ge {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 0;
+    color: $warmgrayplusone;
+    > li:not(:empty) {
+      margin-bottom: 10px;
+      position: relative;
+
+      &[draggable="true"]:hover {
+        background: url("/assets/icon/drag_drop_icon.png") 13px 50% no-repeat;
+        #{$self}-index {
+          visibility: hidden;
+        }
+      }
+    }
+
+    &[dnd-sortable-container] {
+      li {
+        margin-left: -30px;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.mdl-checkbox {
+  &__box-outline {
+    background-color: $white;
+  }
+}

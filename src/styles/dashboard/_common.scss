@@ -1,0 +1,208 @@
+// MDL - SWITCH
+:host /deep/ .mdl-switch.is-checked .mdl-switch__thumb {
+  background: white;
+}
+
+:host /deep/ .mdl-switch.is-checked .mdl-switch__track {
+  background: #00aeda;
+}
+
+:host /deep/ .mdl-switch__track {
+  top: 0px;
+  height: 20px;
+}
+
+:host /deep/ .mdl-switch__ripple-container .mdl-ripple {
+  background: transparent;
+}
+
+:host /deep/ .red-color {
+  color: red;
+}
+
+:host /deep/ .align-right {
+  text-align: right;
+}
+:host /deep/ .max-width{
+  width: max-content !important;   
+}
+
+:host /deep/ .padding-right-5 {
+  padding-right: 5px;
+}
+
+:host /deep/ .color-grey {
+  color: #7F7F74 !important;
+ }
+ 
+
+:host /deep/ .legend {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  text-align: right;
+  line-height: 30px;
+}
+
+:host /deep/ .right-legend {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  text-align: left;
+  line-height: 30px;
+}
+
+:host /deep/ .header-title {
+  font-family: Georgia;
+  font-size: 18px !important;
+  margin: 0px !important;
+  // padding: 0px 8px !important;
+}
+
+:host /deep/ .header-title:first-child {
+  padding: 0px !important;
+  max-width: 350px;
+}
+
+:host /deep/ .header-title:last-child {
+  padding-right: 0px !important;
+}
+
+:host /deep/ .active-header {
+  margin-bottom: -5px !important;
+  font-weight: bold;
+  // text-decoration: underline;
+  border-bottom : 2px solid black;
+}
+
+:host /deep/ .bold {
+  font-weight: bold;
+}
+
+:host /deep/ .x-axis .tick {
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  line-height: 14px;
+  text-align: center;
+}
+
+:host /deep/ .y-axis .tick {
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  line-height: 14px;
+  text-align: center;
+}
+
+:host /deep/ .col-chart-top-label {
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  line-height: 14px;
+  text-align: right;
+}
+
+:host /deep/ .column-chart-xaxis .x-axis {
+  stroke-opacity: 0;
+  font-family: Roboto medium;
+  font-size: 12px;
+}
+
+:host /deep/ .col-chart-label {
+  font-family: Roboto medium;
+  font-size: 12px;
+}
+
+:host /deep/ .fill-grey {
+  fill: #7f7f74;
+}
+
+:host /deep/ .fill-white {
+  fill: white;
+}
+
+:host /deep/ .col-chart-tooltip {
+  opacity: 0;
+  position: absolute;
+  display: none;
+  font-family: Roboto medium;
+}
+
+:host /deep/ .column-chart-bars-svg {
+  border-left: 1px solid  #ddd;
+  border-bottom: 1px solid  #ddd;
+}
+
+:host /deep/ .bub-chart-header-content {
+ 
+    .header-span {
+      //border-right: 1px solid black !important;
+        margin: 0 6px;
+        // .header-border{
+        //   border-bottom: 2px solid #000;
+        //   padding-bottom: 3px;
+        // }   
+  }
+   
+  .header-span:last-child {
+    border-right: none ;
+  }
+  .header-title {
+      padding: 0 !important;
+      margin-top: 3px !important;
+  }
+}
+
+.legend-circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: auto 10px auto 0;
+  display: inline-flex;
+}
+
+:host /deep/ .txt-align-start {
+  text-align: start;
+}
+
+:host /deep/ .check {
+  white-space: nowrap;
+  display: inherit;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  // width: 100% !important;
+}
+
+:host /deep/ .active-type {
+  font-weight: bold;
+  color: black !important;
+}
+
+:host /deep/ b {
+  opacity: 0.7 !important;
+}
+
+:host /deep/ .classify-list li {
+  padding: 9px 10px 9px 5px;
+  /* margin-left: -10px; */
+  height: 72px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+
+:host /deep/ .column-chart-bars {
+  height: 215px;
+}
+
+:host /deep/ .scol-chart-label {
+  font-family: Roboto Regular;	
+  font-size: 12px;	
+  letter-spacing: 0.29px;	
+  line-height: 14px;
+}

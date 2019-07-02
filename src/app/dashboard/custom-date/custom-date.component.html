@@ -1,0 +1,49 @@
+<div id='popup'>
+
+      <div class="popup-content">
+          <div class="modal-header-inner">
+            <div class="row dateHeader">
+              <div class="col-sm-10">
+                <span class="margin0">{{labels.header}}</span>
+              </div>
+              <div class="col-sm-2 text-right">
+                <button aria-label="Close" class="close" (click)='close()' type="button">
+                  <i aria-hidden="true" class="icon-close">
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Content of the pop up -->
+          <div class="modal-body">
+            <div class="p-lr-30">
+              <div class="row">
+                <div class="col-md-12 text-right">
+                  <span class="text-danger f-12px">{{labels.requiredLabel}}</span>
+                </div>
+              </div>
+              <div class="row height40">
+                <div class="col-sm-6 wdth100percent">
+                  <div class="mgn-btm-twnty wdth100percent search-dateficker-field">
+                    <app-mat-date-picker placeholder={{labels.placeholder[0]}} [selectedDate]="customDateRange['startDate']" [minDate]='minStartDate' [maxDate]='maxStartDate'  (SelectEvent)="setStartDate($event)">
+                    </app-mat-date-picker>
+                  </div>
+                </div>
+                <div class="col-sm-6 wdth100percent">
+                  <app-mat-date-picker  placeholder={{labels.placeholder[1]}} [selectedDate]="customDateRange['endDate']" [minDate]='minEndDate' [maxDate]='maxEndDate' name="startDate" (SelectEvent)="setEndDate($event)">
+                  </app-mat-date-picker>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="align-right">
+              <button class="small-button line mr-15" (click)='close()'>
+                {{popUpButtons.cancelBtn}}
+              </button>
+              <button class="small-button clr last" [disabled]='((!isStartValid) || (!isEndValid))' (click)="onLoad()"> {{popUpButtons.setDateBtn}} 
+              </button>
+            </div>
+          </div>
+        </div>
+</div>

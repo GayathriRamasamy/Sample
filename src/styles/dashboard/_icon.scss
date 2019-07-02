@@ -1,0 +1,39 @@
+.leftArrow {
+  margin-bottom: 7px;
+}
+
+.fa-sliders:before {
+  content: "";
+  background-image: url("../assets/icon/icon-filter.svg");
+  padding: 5px;
+  display: block;
+  height: 23px;
+  width: 25px;
+}
+
+.fa-filter:before {
+  content: "";
+  background: url("../assets/icon/color-filter.svg") no-repeat scroll center center;
+  background-size: 100%;
+  margin-right: 2px;
+  display: block;
+  height: 20px;
+  width: 25px;
+}
+
+.f-icon {
+  padding: 4.12px 4px 4.12px 4px;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  margin: 3px;
+}
+.p-icon {
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1px 2.34px 1px 3px;
+  box-sizing: border-box;
+  height: 14px;
+  width: 11.66px;
+  // width: 15.66px;
+}

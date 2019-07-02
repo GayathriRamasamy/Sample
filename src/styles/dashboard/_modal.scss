@@ -1,0 +1,89 @@
+@import "colors";
+
+:host /deep/ .modal-new-container {
+  label .fa-asterisk {
+    color: $iff-asterisk !important;
+    font-size: 12px;
+
+    &:before {
+      content: "*";
+    }
+  }
+  .modal-header-inner,
+  .modal-footer-inner {
+    display: block;
+    width: 100%;
+  }
+  .modal-content {
+    border-radius: 0 !important;
+
+    .modal-body {
+      padding: 5px 20px 5px 20px;
+    }
+
+    .modal-header {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      padding: 14px 20px 13px 15px;
+      border-bottom: 1px solid #e0e1e0;
+      background-color: #f3f3f2;
+      padding: 0px !important;
+      h4 {
+        font-family: Georgia;
+        font-size: 24px;
+      }
+
+      .close {
+        position: relative;
+        width: 20px;
+        height: 30px;
+
+        &:active {
+          outline: none;
+        }
+      }
+    }
+    .modal-footer {
+      padding: 0px 20px 20px 20px;
+    }
+    .icon-close {
+      display: inline-block;
+      position: absolute;
+      left: -2px;
+
+      .close-line1 {
+        height: 2px;
+        width: 24px;
+        transform: rotate(-4545deg);
+        background-color: #7f7f74;
+        display: inline-block;
+        position: absolute;
+      }
+
+      .close-line2 {
+        height: 2px;
+        width: 24px;
+        transform: scaleX(-1) rotate(-4545deg);
+        background-color: #7f7f74;
+        display: inline-block;
+        position: absolute;
+      }
+    }
+  }
+}
+.small-button {
+  &.line {
+    background: $white;
+    border: 1px solid $iff-primary;
+    padding: 6px 15px 6px 15px;
+    &:hover,
+    &:focus,
+    &:active {
+      background: $white;
+      border: 1px solid $iff-primary;
+    }
+  }
+  &.mr-15 {
+    margin-right: 15px;
+  }
+}

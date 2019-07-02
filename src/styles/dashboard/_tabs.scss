@@ -1,0 +1,132 @@
+@import "./colors";
+@import "./_list.scss";
+
+.main-tab {
+  margin: 0;
+  width: 1100px;
+  padding: 0px;
+  display: flex;
+  color: $iff-primary;
+  height: 40px;
+  line-height: 16px;
+  font-size: 14px;
+  text-align: center;
+
+  &-item {
+    cursor: pointer;
+    display: inline-flex;
+    list-style: none;
+    position: relative;
+  }
+
+  &-content {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    margin-right: 2px !important;
+    background-color: #e9e6c3;
+    cursor: pointer;
+    :last-child {
+      margin-right: 0px !important;
+    }
+    &:hover {
+      background-color: $iff-primary-hover;
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: $white;
+    }
+
+    //end
+    &.is-active {
+      background-color: $white;
+    }
+  }
+
+  &-image {
+    width: 40px;
+    height: 40px;
+    filter: grayscale(40%);
+  }
+  &-item:hover &-image {
+    filter: grayscale(0%);
+  }
+}
+
+.marginTab {
+  margin: 30px 33px 0px 20px !important;
+}
+.marginB {
+  margin: 10px 20px 0px 10px !important;
+}
+
+.tabs {
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  margin: 0 !important;
+  padding: 0;
+  display: flex;
+  height: 40px;
+  color: $iff-primary;
+
+  &-filter-width {
+    max-width: 50px;
+  }
+
+  &-item {
+    @extend .list-item;
+    min-width: 80px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &.is-active {
+      background-color: $white;
+    }
+
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+      top: -0.5em;
+    }
+
+    :last-child {
+      margin-right: 0px;
+    }
+  }
+
+  &-link {
+    @extend .list-link;
+    min-width: 80px;
+    border-radius: 0px;
+    padding: 5px;
+
+    &.is-active {
+      background-color: $white;
+      color: $iff-primary;
+      border-radius: none;
+    }
+  }
+
+  &-dark &-link {
+    &.is-active {
+      background-color: $iff-primary;
+      color: $white !important;
+    }
+
+    &.is-selected {
+      background-color: $white !important;
+      color: $iff-primary;
+    }
+  }
+
+  &-body {
+    padding: 16px 20px 40px;
+  }
+}

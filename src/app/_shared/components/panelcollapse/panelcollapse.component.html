@@ -1,0 +1,4 @@
+<h3 class="margin0 mgn-btm-ten accordion-h" (click)="panelCollapse()" [attr.aria-expanded]="!panelCollapsed">
+  <i class="fa fa-caret-down panel-icon-margin" *ngIf="!panelCollapsed"></i>
+  <i class="fa fa-caret-right panel-icon-margin" *ngIf="panelCollapsed"></i>{{label}}
+</h3>

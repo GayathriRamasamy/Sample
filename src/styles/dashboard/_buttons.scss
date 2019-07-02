@@ -1,0 +1,200 @@
+@import "../dashboard/_colors.scss";
+
+.button {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  height: 30px;
+  line-height: 16px;
+  padding: 0.25rem 0.5rem;
+  font-family: "Roboto Medium", Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 550;
+  text-align: center;
+
+  &.is-primary {
+    background-color: $white !important;
+    cursor: pointer;
+    border: 1px solid $button-color;
+    color: $tapa !important;
+    margin-right: 12px;
+
+    &:focus,
+    &:hover,
+    &.is-focus {
+      background-color: $button-color-hover !important;
+      color: $white !important;
+    }
+
+    i {
+      margin: 5px;
+      font-weight: bold;
+    }
+  }
+
+  &.is-secondary {
+    border: 1px solid $button-sec-bg-color !important;
+    color: $white !important;
+    background-color: $iff-primary;
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &.is-primary-execute {
+    border-color: $white;
+    background: $chicago;
+    color: $white;
+
+    &:focus,
+    &:hover {
+      background: $iff-primary;
+    }
+  }
+
+  &.is-secondary-execute {
+    background: $halfnhalf;
+    color: $iff-primary;
+
+    &:focus,
+    &:hover {
+      background: $bianca;
+      color: $zeus;
+    }
+  }
+
+  .mat-button-ge {
+    min-width: 150px;
+  }
+}
+
+.icon {
+  padding: 5px;
+}
+
+.small-button {
+  background-color: $iff-btn-primary;
+  color: #717171;
+  padding: 7px 15px 7px 15px;
+  display: inline-block; //  color: $matterhorn;
+  font-size: 14px;
+  line-height: 16px;
+  border-radius: 2px;
+  font-family: "Roboto Bold";
+  cursor: pointer !important;
+  margin-right: 15px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+
+  &::last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: $iff-btn-primary-hover;
+  }
+
+  &:focus {
+    background-color: $iff-btn-primary-hover;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  &:disabled {
+    //background-color: $iff-btn-primary-disabled;
+    // color: #DEDCD3;
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  i {
+    // vertical-align: top;
+    font-weight: bold;
+    padding-right: 5px;
+
+    &.fa-caret-up {
+      padding-left: 10px;
+      padding-right: 0px;
+    }
+
+    &.fa-caret-down {
+      padding-left: 10px;
+      padding-right: 0px;
+    }
+  }
+
+  &.clr {
+    background-color: $chicago !important;
+    color: $white;
+
+    i {
+      color: $white !important;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $iff-primary;
+    }
+
+    // &:disabled {
+    //     background-color: $iff-btn-clr-disabled;
+    // }
+  }
+
+  &.st-2-dark {
+    background-color: $iff-btn-clr2;
+    color: $white;
+
+    i {
+      color: $white !important;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $iff-btn-clr2-hover;
+    }
+
+    // &:disabled {
+    //     background-color: $iff-btn-clr-disabled;
+    // }
+  }
+
+  &.st-2-light {
+    border: 1px solid $iff-btn-clr2;
+    border-radius: 2px;
+    background-color: transparent;
+    color: $iff-btn-clr2;
+
+    i {
+      color: $iff-btn-clr2;
+    }
+
+    &:hover,
+    &:focus {
+      color: $iff-btn-clr2-hover;
+      border: 1px solid $iff-btn-clr2-hover;
+
+      i {
+        color: white;
+      }
+    }
+
+    // &:disabled {
+    //     background-color: $iff-btn-clr-disabled;
+    // }
+  }
+
+  &.last {
+    margin-right: 0px;
+    border: none;
+  }
+
+  &.mgn-rght {
+    margin-right: 0;
+  }
+}

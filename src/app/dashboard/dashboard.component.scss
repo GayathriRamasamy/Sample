@@ -1,0 +1,123 @@
+// @import "src/styles/main/main";
+.border {
+  padding-right: 0px !important;
+}
+
+.top-dropdown {
+  // color: #7f7f74;
+  // font-size: 14px;
+  // line-height: 16px;
+  // margin-left: 18px;
+  // margin-top: 6px;
+
+  color: #7f7f74;
+  font-size: 14px;
+  line-height: 16px;
+  margin-left: 18px;
+  margin-top: 66px;
+}
+.categoryDropdown {
+  left: -7px !important;
+  top: 3px !important;
+  width: 240px !important;
+  transform: translate(0px, 0px) !important;
+  .dropdownList {
+    padding: 10px;
+  }
+  .categorySpan {
+    font-size: 14px;
+    color: #7f7f74;
+    line-height: 16px;
+    width: 200px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .categoryItem {
+    width: 180px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.item {
+  margin-right: 20px;
+  // min-width: 240px;;
+}
+
+.show {
+  .fa-angle-down {
+    &::before {
+      content: "\f106";
+    }
+  }
+}
+
+.custom-dropdown-menu {
+  padding: 5px 0;
+  white-space: nowrap;
+  top: 0% !important;
+  left: 0% !important;
+  .custom-dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+
+    .mdl-switch {
+      width: auto;
+      margin-right: 15px;
+    }
+  }
+}
+.top-dropdown {
+  .dropdown-item {
+    &:active {
+      background-color: transparent;
+    }
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+
+.disable-pointer {
+  pointer-events: none;
+}
+
+.categoryDropdown {
+  left: -7px !important;
+  top: -6px !important;
+}
+
+.custom-dropdown-menu {
+  transform: translate(-7px, -6px) !important;
+  padding: 0;
+}
+
+.dropdownList, .categoryDropdown .dropdownList{
+  padding: 0px 5px;
+}
+
+.custom-dropdown-menu-item:first-child{
+  padding: 0 9px;
+  color: #7f7f74;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.overflow-ellipsis{
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+}
+
+.min-width-100 {
+  min-width: 110px !important;
+}

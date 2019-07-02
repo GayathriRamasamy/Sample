@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="sub-header-section">
+            <span></span>
+            <ul class="tab-section graytab mgn-rgh-trty">
+                <li (click)="onTabClick(tab);" *ngFor="let tab of tabList">
+                    <a href="javascript:void(0);" [ngClass]="{'active': selectedTab === tab.value,'disabled':tab.disabled }">
+                        {{ tab.label }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

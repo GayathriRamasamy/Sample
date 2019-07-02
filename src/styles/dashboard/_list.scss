@@ -1,0 +1,33 @@
+@import "./_colors.scss";
+.list {
+  line-height: 1.15;
+  cursor: pointer;
+  color: $iff-primary;
+
+  &-item {
+    list-style: none;
+    // position: relative;
+    // background-color: $halfnhalf;
+    display: inline-flex;
+    margin-right: 2px !important;
+  }
+  &-link {
+    background-color: $halfnhalf;
+
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $iff-primary;
+
+    &:hover {
+      background: $iff-board-bg;
+      color: $iff-primary;
+      text-decoration: none;
+    }
+    &:active {
+      background-color: $white;
+      color: $zeus;
+    }
+  }
+}

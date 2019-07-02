@@ -1,0 +1,55 @@
+/*.tiltlabel {
+    border-bottom: 20px solid #fff;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    height: 0;
+    width: 100px;
+    text-align: center;
+    -ms-transform: rotate(40deg);
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    position: absolute;
+    right: -30px;
+    top: 5px;
+    color: #353535;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #000000;
+}
+
+.up {
+    position: absolute;
+    left: -26px;
+    top: 18px;
+    transform: rotate(-43deg);
+}
+
+.down {
+    position: absolute;
+    right: -24px;
+    bottom: -29px;
+    transform: rotate(50deg);
+}
+*/
+
+.tiltlabel {
+    right: -4px;
+    top: -5px;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    z-index: 1;
+    &.new {
+        background-image: url('../../../assets/img/tile/new.png');
+    }
+    &.updated {
+        background-image: url('../../../assets/img/tile/updated.png');
+    }
+}

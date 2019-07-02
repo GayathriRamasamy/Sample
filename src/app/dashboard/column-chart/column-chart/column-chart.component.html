@@ -1,0 +1,39 @@
+
+<!-- Column chart -->
+<div class="column-chart-header-content">
+  <!-- Header tabs -->
+  <div class="column-chart-header-tab">
+    <ul>
+      <li *ngFor="let tab of columnChartTabs | keyvalue : sortFn;let i=index" [class.active]="columnChartTabIndex === i"
+        (click)="getColumnChart(i, tab.key, tab.key)">{{tab.value}}</li>
+    </ul>
+  </div>
+  <!-- Details button -->
+  <div class="column-chart-header-details-tab">
+    <button class="btn-detail" (click)="navigateDetails()">{{detailsLabel}}</button>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Chart content -->
+  <div class="col-chart-wrap col-lg-12">
+    <!-- Y-axis -->
+    <div class="column-chart-yaxis">
+    </div>
+    <!-- Content -->
+    <div class="core-content col-lg-12" #columnChartContent>
+      <!-- Graph -->
+      <div class="column-chart-bars" #columnChart >
+        <svg class="column-chart-bars-svg">
+        </svg>
+        <div class="col-chart-tooltip" #columnChartTooltip>
+        </div>
+      </div>
+      <!-- X-axis -->
+      <div class="column-chart-xaxis">
+        <div class="col-chart-x-axis-tooltip" #columnChartXaxisTooltip>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

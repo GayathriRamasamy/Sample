@@ -1,0 +1,120 @@
+<div id='popup'>
+  <div class="popup-content">
+    <div class="modal-header-inner">
+      <div class="row header">
+        <div class="col-sm-10">
+          <span>{{title}}</span>
+        </div>
+        <div class="col-sm-2 text-right">
+          <button aria-label="Close" class="close" (click)="activeModal.dismiss('close')" type="button">
+            <i aria-hidden="true" class="icon-close">
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details tabs -->
+    <div class="modal-body font pt-0">
+      <div>
+        <div class="row">
+          <ul class="tabs tabs-dark" *ngIf="secLvlTab">
+            <li class="tabs-item mr-0" *ngFor="let tabdata of secLvlTab | keyvalue :sortFn"
+              (click)="navigateSecLvlTab(tabdata)">
+              <a class="tabs-link" [ngClass]="{'is-selected' : selectedSecLvlTab === tabdata.value }">{{tabdata.value}}
+              </a>
+            </li>
+            <li class='searchContent'>
+              <i class="fa fa-search" id="searchIcon" aria-hidden="true"></i>
+              <input class="inputSearch" type="text" placeholder='{{labels.filterPlaceholder}}' name="search"
+                [(ngModel)]="searchText" (keyup)='searchContent($event.target.value)'>
+              <i *ngIf="searchText" class="fa fa-times" (click)="clearSearch()"></i>
+            </li>
+
+            <li class="main-tab-item" (click)="showFilter=!showFilter">
+              <a class="main-tab-content main-tab-link" [ngClass]="{'is-active': showFilter}"><i
+                  class="fa fa-sliders"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Filters -->
+        <!-- <div *ngIf="isEnableSpdfilter">
+          <div id="Test" [ngClass]="{'displayNone' : !showFilter}">
+            <app-scentPortfolio-filter (onFilterChange)="onChangeFilter($event)"
+              [selectedFacets]='selectedFacetCollection' (onCancelFilters)="onCancelFilters($event)"
+              (onApplyFilters)="onApplyFilters($event)" (onResetFilters)='onResetFiters()' [key]='key'>
+            </app-scentPortfolio-filter>
+          </div>
+        </div> -->
+        <div class="p-lr-30">
+          <div class="row fltRight margin">
+            <div class="col-md-12 p-lr-0">
+              <span class="border-right ht23" *ngIf="sortByoptions">
+                <span class="f-12px mt-2 label">{{labels.sortByLabel}} : </span>&nbsp;
+                <span class="f-12px darkLabel mt-2">{{selectedSortedOption}} </span>
+                <span ngbDropdown placement="bottom-left" class='mt-1'>
+                  <i  class="fa fa-angle-down f-icon fontWeight margin0 " id="sortByDropdown"  ngbDropdownToggle></i>
+                  <ul ngbDropdownMenu class="date-dropdown-menu" aria-labelledby="sortByDropdown">
+                    <li class="date-dropdown-menu-item" *ngFor="let sortOption of sortByoptions | keyvalue :sortFn"
+                      (click)="toSortbyOption(sortOption)">
+                      <u [ngClass]="{fntWeit600 : sortOption.value === selectedSortedOption}">
+                        {{sortOption.value}}</u>
+                    </li>
+                  </ul>
+                </span>
+              </span>
+
+              <!-- date range drop down -->
+              <span class="f-12px pl-2 label">{{labels.dateLabel}} :</span>&nbsp;
+              <div class="d-inline-flex">
+                <div ngbDropdown placement="bottom-right">
+                  <div id="dateRangeDropdown"  ngbDropdownToggle>
+                    <label class="darkLabel">{{selectedDate}} </label>
+                    <span> <img [src]='icons.calenderIcon' class="f-icon">
+                      <ul ngbDropdownMenu class="date-dropdown-menu" aria-labelledby="dateRangeDropdown">
+                        <li class="date-dropdown-menu-item">{{selectedDate}}
+                          <img [src]="icons.calenderIcon" class="f-icon fltRight">
+                        </li>
+                        <li class="date-dropdown-menu-item" *ngFor="let dateRange of dateRanges | keyvalue :sortFn"
+                          [ngClass]="{'disableEvent' : dateRange.value === selectedDate , 'enableEvent' : dateRange.key === 'customRange' }"
+                          (click)="pickDateRange(dateRange)">{{dateRange.value}}</li>
+                      </ul>
+                    </span>
+                  </div>
+                </div>
+
+
+                <!-- download/print as PDF -->
+                <div class="dropdown border-left" ngbDropdown placement="bottom-right">
+                  <img [src]="icons.downloadIcon" id="export" ngbDropdownToggle class="f-icon">
+                  <ul ngbDropdownMenu class="date-dropdown-menu" aria-labelledby="export">
+                    <li class="date-dropdown-menu-item" (click)="onPrintList()">{{downloadLabels[0]}}
+                    </li>
+                    <li class="date-dropdown-menu-item" (click)="exportExcel()">{{downloadLabels[1]}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="detail-content">
+          <table class="table">
+            <thead class="detail-thead">
+                <th class="thead" *ngFor="let theader of staticHeaders" [innerHTML]="theader"></th>
+                <th class="thead" [innerHTML]="dynamicHeaderToDisplay"></th>
+            </thead>
+            <tbody class="detail-tbody">
+                <tr *ngFor="let contents of filteredContent" class="detail-tr">
+                    <td *ngFor="let content of contents" [innerHTML]="content"></td>
+                  </tr>
+            </tbody>
+            <!-- <div *ngIf="!filteredContent">{{noResults}}</div> -->
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

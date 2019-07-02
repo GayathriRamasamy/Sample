@@ -1,0 +1,43 @@
+<div class="search-main">
+
+    <div class="search position-relative" >
+        <!-- This input box for only on project search, because it show suggested project list -->
+        <!-- <input type="text" [hidden]="selectedSearchOption.value !== 'projects'" placeholder="Type your search" [ngbTypeahead]="onSelect"
+            [resultTemplate]="rt" [inputFormatter]="formatter" [(ngModel)]="searchText" (ngModelChange)="onFreeTextFilterChange(userSearch);"
+             (keyup.enter)="onSearch()"
+            [focusFirst]='false' (selectItem)="selectProject($event)" > -->
+            <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="Type your search"
+            [(ngModel)]="searchText" (keyup.enter)="onSearch()">
+     
+        <i *ngIf="searchText" class="fa fa-times" (click)="clearSearch()"></i>
+        <!-- <button class="go" (click)="onSearch()">GO</button> -->
+    </div>
+    <div class="search-left">
+        <div ngbDropdown class="d-block">
+            <button class="btn btn-outline-primary main-button" id="searchOptions" ngbDropdownToggle>
+                {{ selectedSearchOption?.label }}
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="searchOptions">
+                <button class="dropdown-item" *ngFor="let item of searchList" (click)="onSearchOptionChanged(item);">
+                    {{ item.label }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <ng-template #rt let-r="result" let-t="term">
+        <div class="p-search-result">
+            <div class="p-s-r-left">
+                <tiltlabel [status]="getCSSClassForProjectStatus(r)"></tiltlabel>
+                <div class="pject-tab-logo">
+                    <div class="img_section">
+                        <img [src]="getImage(r.text.split(' -')[0].trim(), true)" alt="" title="" onerror="this.src='../../../assets/img/nopicture.png'">
+                        <!-- <img src='../../../assets/img/nopicture.png' /> -->
+                    </div>
+                </div>
+            </div>
+            <div class="p-s-r-content">{{r.text}}</div>
+        </div>
+    </ng-template>
+</div>

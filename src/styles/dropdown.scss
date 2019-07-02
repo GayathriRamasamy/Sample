@@ -1,0 +1,82 @@
+
+.dropdown{
+    .cus-dropdown-btn{
+        padding: 5px 8px;
+        display: inline-block;
+        color: #757575 !important;
+        border: 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+        cursor: pointer;
+        &.dropdown-toggle:after{
+            content: none;
+        }        
+        &.with-arrow{   
+            &:after{         
+            content: "";
+            }
+        }
+    }
+    &.show{        
+        .cus-dropdown-btn{
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.35);
+            &.with-arrow:after{
+                border-top: 0;
+                border-right: .3em solid transparent;
+                border-bottom: .3em solid;
+                border-left: .3em solid transparent;
+            }
+            &:before {
+                z-index: 9999;
+                height: 8px;
+                width: 100%;
+                position: absolute;
+                content: "";
+                right: 0px;
+                bottom: -4px;
+                background: #fff;
+            }
+        }
+    }
+    .cus-dropdown-content{
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.35);
+        border-radius: 0px;
+        ul{
+            min-width: 150px;
+            padding: 10px 5px;
+            margin: 0px;
+            li{
+                position: relative;
+                a{
+                    display: block;
+                    cursor: pointer;
+                    color: #212529;
+                    font-size: 13px;
+                    padding: 6px 10px;
+                    line-height: 16px;
+                    &:hover, &:focus, &:active{
+                        color: #00addc;
+                        // background-color: #FBFBFB;
+                    }
+                }
+            }
+        }
+    &.with-sort{
+        .fa.fa-caret-up{
+            position: absolute;
+            right: 10px;
+            top: 4px;
+            &.disable{
+                opacity: .3;
+            }
+        }
+        .fa.fa-caret-down{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            &.disable{
+                opacity: .3;
+            }
+        }
+    }   
+    }
+}

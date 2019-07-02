@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>icon-RMS@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-RMS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect x="0" y="0" width="24" height="24"></rect>
+        <path d="M16.7186042,13.0954142 L16.71685,13.0917588 C16.6932232,13.0395746 16.6674243,12.9851633 16.6413313,12.9320828 L12.0001063,3.6735649 L7.36168219,12.9261087 C6.96209083,13.7370821 6.75,14.6423291 6.75,15.5822828 C6.75,18.7232219 9.11233693,21.25 12.0001203,21.25 C14.8876953,21.25 17.25,18.7231864 17.25,15.5822828 C17.25,14.7079815 17.0664501,13.8629835 16.7186042,13.0954142 Z" id="Shape-2" stroke="#E8503E" stroke-width="1.5" fill-rule="nonzero"></path>
+        <rect id="Rectangle" fill="#FFFFFF" x="5" y="9" width="14" height="9.5"></rect>
+        <text id="RMS" font-family="Roboto-Bold, Roboto" font-size="9" font-weight="bold" letter-spacing="0.4375" fill="#363630">
+            <tspan x="1.76367188" y="17">RMS</tspan>
+        </text>
+    </g>
+</svg>

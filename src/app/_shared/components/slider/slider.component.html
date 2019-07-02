@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <label>{{ minTitle }} {{ maxTitle }}</label>
+        <div class="slider-main" id="sliderCollapsed">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="min-range">Min : {{minValue | number: '1.2-2'}}</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <span class="max-range">Max : {{maxValue | number: '1.2-2'}}</span>
+                </div>
+            </div>
+
+            <nouislider #slider [connect]="true" [min]="minValue" [max]="maxValue" [step]="steps" [(ngModel)]="range"
+                (ngModelChange)="onNgModelChange($event)" (change)="onChangeRange($event)" [config]="config">
+            </nouislider>
+
+            <div class="rangewrapper">
+                <div class="rangecol rangelabel">Range :</div>
+                <div class="rangecol inputblk">
+                    <div class="disable-outline mgn-btm-twnty text-right textarea700 labelspace red-non wdth100percent">
+                        <iff-mdl-textfield type="text" class="required-non" label="" floating-label [(ngModel)]='minmnc'
+                            OnlyNumber="true" (keyup)='MinMNCkeyUp.next($event)' name="Minmnc" class="datainvalid">
+                        </iff-mdl-textfield>
+                    </div>
+                </div>
+                <div class="rangecol tolabel">
+                    <span>to</span>
+                </div>
+                <div class="rangecol inputblk">
+                    <div class="disable-outline mgn-btm-twnty text-right textarea700 labelspace red-non wdth100percent">
+                        <iff-mdl-textfield type="text" class="required-non" label="" floating-label [(ngModel)]='maxmnc'
+                            OnlyNumber="true" (keyup)='MaxMNCkeyUp.next($event)' name="Maxmnc" class="datainvalid">
+                        </iff-mdl-textfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

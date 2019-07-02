@@ -1,0 +1,190 @@
+@import '../styles/colors';
+
+.tab-section {
+    display: inline-block;
+    li {
+        float: left;
+        >a{
+            padding: 11px 20px;
+            line-height: 19px;
+            font-size: 14px;
+            font-weight: normal;
+            display: inline-block;
+            margin-right: 1px;
+            position: relative;
+            cursor: pointer;
+            sup {
+                &.superscript {
+                    font-size: 9px;
+                    padding-left: 10px;
+                    top: -8px;
+                    display: inherit;
+                }
+            }
+            i {
+                vertical-align: top;
+            }
+            .tab-search {
+                position: relative;
+                input {
+                    background-color: transparent;
+                    padding: 10px 20px 12px 27px;
+                    color: $oldlavender;
+                    &+i {
+                        position: absolute;
+                        top: 10px;
+                        left: 7px;
+                    }
+                    &:focus {
+                        color: $whitepteghteght;
+                        background-color: $oldlavender;
+                        & ~ i {
+                            color: $whitepteghteght;
+                            background-color: $oldlavender;
+                        }
+                        &::-webkit-input-placeholder{
+                            color: #fff;
+                        }
+                    }
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+            i {
+                font-size: 16px;
+                vertical-align: middle;
+            }
+        }
+    }
+    &.graytab {
+        li {
+            // &:first-child{
+            //         a{
+            //             &:hover{
+            //             background-color: $halfandhalf !important;
+            //             color: #B7B5A4 !important;
+            //             cursor: default !important;
+            //         }
+            //         }
+            //     }
+            a {
+                color: $oldlavender;
+                background-color: $halfandhalf;
+                &.active {
+                    background-color: $oldlavender;
+                    color: $whitepteghteght;
+                    &:hover {
+                        //background-color:$oldlavender;
+                        //color:$whitepteghteght;
+                        background-color: $oldlavender;
+                        color: $whitepteghteght;
+                    }
+                }
+
+                &:hover, &:focus {
+                    background-color: $oldlavender;
+                    color: $whitepteghteght;
+                     ::-webkit-input-placeholder {
+                        color: $whitepteghteght;
+                    }
+                     ::-moz-placeholder {
+                        color: $whitepteghteght;
+                    }
+                     :-ms-input-placeholder {
+                        color: $whitepteghteght;
+                    }
+                     :-moz-placeholder {
+                        color: $whitepteghteght;
+                    }
+                }
+                &.grayminusfour {
+                    color: $grayminusfour;
+                    &:hover {
+                        background-color: $oldlavender;
+                        color: $whitepteghteght;
+                    }
+                }
+            }
+        }
+        &.wt-bg{
+            li{
+                a {
+                    color: $oldlavender;
+                    background-color: $halfandhalf;
+                    &.active {
+                        background-color: $whitepteghteght;
+                        color: $oldlavender;
+                        &:hover {
+                            //background-color:$oldlavender;
+                            //color:$whitepteghteght;
+                            background-color:$whitepteghteght;
+                            color: $oldlavender;
+                        }
+                    }
+    
+                    &:hover, &:focus {
+                        background-color: $whitepteghteght;
+                        color: $oldlavender;
+                        //  ::-webkit-input-placeholder {
+                        //     color: $whitepteghteght;
+                        // }
+                        //  ::-moz-placeholder {
+                        //     color: $whitepteghteght;
+                        // }
+                        //  :-ms-input-placeholder {
+                        //     color: $whitepteghteght;
+                        // }
+                        //  :-moz-placeholder {
+                        //     color: $whitepteghteght;
+                        // }
+                    }
+                }
+            }
+        }
+    }
+    &.bluetab {
+        li {
+            a {
+                background-color: #C7E2E1;
+                color: $bluelagoon;
+                &:hover {
+                    // background-color: $mabel;
+                    background-color: $bluelagoon;
+                    color: $whitepteghteght;
+                }
+                &.active {
+                    background-color: $bluelagoon;
+                    color: $whitepteghteght;
+                }
+            }
+            &:first-child {
+                a {
+                    border-top-left-radius: 2px;
+                }
+            }
+            &:last-child {
+                a {
+                    border-top-right-radius: 2px;
+                }
+            }
+        }
+    }
+}
+
+
+/*IE Hack*/
+
+// @media screen and (-ms-high-contrast: active),
+// (-ms-high-contrast: none) {
+//     .tab-section {
+//         .tab-search {
+//             input {
+//                 padding: 12px 20px 13px 27px !important;
+//                 &+i {
+//                     top: 12px !important;
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,172 @@
+/*start hex colors*/
+
+$warmgrayplusone: #363630; 
+$warmgrayminusone: #999990;
+$warmgrayminustwo: #CCCCC7;
+$warmgrayfour: #EEEEED;
+$warmgrayminusfive: #F3F3F2;
+$blue:#0138a0;
+$bluehover: #E4E4E4;
+$blueactive: #CACACA;
+$brightblue:#0073F0;
+$brightbluehover: #C2D7DD;
+$brightgreen: #00C2D1;
+$green:#2fbc53;
+$yellow:#f5bf04;
+$red: #E8503E;
+$white: #ffffff;
+$lightblue:#F3F5FB;
+$grayminusthree:#A9ACB1;
+$grayminustwo:#767676;
+$grayminusfour:#B7B5A4;
+$oldlavender:#7F7F74;
+$bluelagoon:#005870;
+$dimgray:#7F7F70;
+$aliceblue:#ECEEEF;
+$snowdrift:#dcdcd9;
+$ivory:#F9F8EE;
+$mabel: #C7E2E1;
+$mountainmeadow: #09AD7E;
+$gainsboro: #E0E0E0;
+$lightbluedark: #AADDEB;
+$pattensblue:#D1EDF4;
+$halfandhalf: #EAE5C4;
+$matterhorn: #4B4B4B;
+$lightcoral:#EF897D;
+$geraldine: #ED7668;
+$sweetpink: #F0968B;
+$tapa:#7F7F74;
+$mabel:#c7e2e1;
+$linkwater: #BFC1C5;
+$wildwatermelon:#F5515F;
+$carmine:#9F031B;
+$matterhorn:#4C4C4C;
+$buttonhover:#E3F0FD;
+$opacity-pt-six: 0.66;
+$opacity-pt-eight: 0.88;
+$ironsidegrey: #6c6c61;
+$silversand:#c1c1bb;
+$jumbo:#87877D;
+$gray80:#cccccc;
+$gray60:#999999;
+$gray20:#333333;
+$snowdrift:#E1E1DE;
+$gainsboro:#e5e5e5;
+$mystic: #E0E1E0;
+$chicago: #65675E;
+$concrete: #CACAC6;
+$dawn: #9A9A92;
+$bombay: #AFAFA8;
+
+/*end hex colors*/
+
+
+/*start rgba colors*/
+
+$subheadlsthover:rgba(255, 255, 255, 0.11);
+$subheadlstactive:rgba(254, 254, 254, 0.55);
+$selectcheckbg:rgba(199, 226, 225, 0.44);
+$selectcheckbghov:rgba(199, 226, 225, 0.22);
+$blackptthrefiv:rgba(0, 0, 0, 0.35);
+$blackptfiv:rgba(0, 0, 0, 0.5);
+$whitepteghteght:rgba(255, 255, 255, 0.88);
+$whiteptfvefve:rgba(255, 255, 255, 0.55);
+$whitepteleven:rgba(255, 255, 255, 0.11);
+$whiteptthirtthre:rgba(255, 255, 255, 0.33);
+$blackptfve:rgba(0, 0, 0, .5);
+$mairepteleven:rgba(13, 13, 12, 0.11);
+$mairepttwnttwo:rgba(13, 13, 12, 0.22);
+$maireptone:rgba(13, 13, 12, 0.1);
+$mairepttwo:rgba(13, 13, 12, 0.2);
+$lghtblueptfvefve: rgba(169, 220, 234, 0.55);
+$blackptthrefve: rgba(0, 0, 0, 0.35);
+$lghtblueptthrefve:rgba(169, 220, 235, 0.5);
+$brightbluehover:rgba(0, 114, 240, 0.77);
+$brightbluefocus:rgba(13, 13, 12, 0.44);
+
+/*end rgba colors*/
+
+
+/*start box shadows*/
+
+$subheadshadow: inset 0 -3px 0 0 $warmgrayminusfive;
+$selectcheckshad:inset 0 -1px 0 0 $warmgrayfour;
+
+/*end box shadows*/
+
+.warmgrayplusone {
+    color: $warmgrayplusone;
+}
+
+.warmgrayminusone {
+    color: $warmgrayminusone;
+}
+
+.green {
+    color: $green !important;
+    background-color: transparent;
+}
+
+
+$iff-table-pipe: #ddd;
+$iff-divider: #ddd;
+$iff-table-label: #7F7F74;
+
+$iff-asterisk : #b62e00;
+$iff-red-text: #b62e00;
+
+$iff-tag-bg: #ededed;
+
+.red {
+    color:$iff-asterisk !important;
+    background-color: transparent;
+}
+
+$iff-btn-primary: #EAE5C4;
+$iff-btn-primary-hover: #DED8B1;
+$iff-primary : #7F7F74; /*Primary Dark Grey Color*/
+$iff-btn-clr-hover : #65675E;
+
+$iff-btn-clr2: #002976;
+$iff-btn-clr2-hover: #0138A0;
+
+$iff-input-label-txt : #A0A098;
+$iff-input-txt  : #363630;
+
+$iff-link-clr : #0138A0;
+$iff-link-clr-hover : #002976;
+
+$iff-table-header : #7F7F74;
+
+
+/*Colin color codes*/
+$right_panel_left_sec_bg: #002A76;
+$right_panel_left_sec_bg_hover:#1D4C9A;
+$right_panel_list_hover: #F2F6FF;
+
+/*button style*/
+$bttn_primary_bg: #002976;
+$bttn_primary_font: #ffffff;
+$bttn_primary_bg_hover: #0138A0;
+$bttn_primary_bg_disable: #CCD4E4;
+
+$bttn_secondary_border_font: #002976;
+$bttn_secondary_bg_hover: #F1F6FF;
+$bttn_secondary_font_hover: #124CBD;
+$bttn_secondary_border_font_diabel: #A7B1C4;
+$iff-table-row-hover : #f8f7ef;
+
+$iff-p-text: #363630;
+$iff-td-text: #363630;
+$boxshadow: 0 6px 10px 0 rgba(0,0,0,0.15);
+
+$switch-bg: #03abe0;
+
+$taginput-close-bg: #CFCFCB;
+$black:#000000;
+$orange:#fba640;
+$dimgreen:#70b879;
+$dimorange:#f5a846;
+$dimred:#cf5a54;
+$dimblue:#234c9e;
+$dimviolet:#5d4762;

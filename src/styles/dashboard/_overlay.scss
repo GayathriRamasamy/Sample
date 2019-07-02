@@ -1,0 +1,293 @@
+.bub-chart-overlay-panel .modal-dialog {
+  max-width: 900px !important;
+  min-height: 700px !important;
+  margin: auto;
+}
+
+.bub-chart-overlay-panel .header-title {
+  font-family: Georgia;
+  margin: 0px !important;
+  font-size: 24px;
+  line-height: 27px;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-content table {
+  list-style: none;
+  padding: 0px !important;
+  margin: 5px 5px 5px 10px;
+  width: 95%;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-content table td {
+  color: #363630;
+  font-family: Roboto;
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  line-height: 18px;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header {
+  background: #cbccc7 !important;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-ipc-icon-detail {
+  margin: auto 0;
+}
+
+.bub-chart-overlay-panel
+  .chart-tooltip-header-ipc-icon-detail
+  .first-child-right-bar:first-child {
+  border-right: 2px solid grey;
+}
+
+.bub-chart-overlay-panel
+  .chart-tooltip-header-ipc-icon-detail
+  .first-child-right-bar {
+  padding: 0px 5px;
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  line-height: 18px;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-icon img {
+  height: 60%;
+  width: 60%;
+  margin: 10px;
+  padding: 5px;
+  background: black;
+  border-radius: 50px;
+}
+
+.bub-chart-overlay-panel .img-flag img {
+  width: 17px;
+  height: 21px;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-ipc-detail {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-card::after {
+  content: "\f078";
+  font: normal normal normal 15px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 49%;
+  border-color: white;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-ipc {
+  margin: auto 0;
+}
+
+.bub-chart-overlay-panel .chart-tooltip-header-ipc h5 {
+  color: #363630 !important;
+  font-family: Georgia !important;
+  font-size: 18px !important;
+  letter-spacing: 0.28px !important;
+  line-height: 21px !important;
+}
+
+.bub-chart-overlay-panel .bold {
+  font-weight: bold;
+}
+
+.bub-chart-overlay-panel .point-five-opacity {
+  opacity: 0.5;
+}
+
+.bub-chart-overlay-panel .legend-format {
+  color: $warmgrayplusone;
+  font-family: Roboto medium;
+  letter-spacing: 0.29px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.bub-chart-overlay-panel .text-anchor-end {
+  text-anchor: end;
+}
+
+.bub-chart-overlay-panel .legend-rect {
+  width: 20px;
+  height: 20px;
+}
+
+.bub-chart-overlay-panel .left-side-tooltip-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bub-chart-overlay-panel .left-side-tooltip-card::after {
+  content: "\f0da";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 49%;
+  left: 100%;
+  border-color: white;
+}
+
+.bub-chart-overlay-panel .overlay-infoTip {
+  font-family: Roboto medium;
+  min-width: 250px;
+  left: -500%;
+  top: 120%;
+  z-index: 1;
+  font-size: 12px;
+  padding: 3px 3px 3px 7px;
+  display: none;
+  background: white;
+  position: absolute;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bub-chart-overlay-panel #tooltip:hover .overlay-infoTip {
+  display: inline;
+  opacity: 1;
+}
+
+.bub-chart-overlay-panel #tooltip .overlay-infoTip::after {
+  content: "";
+  position: absolute;
+  top: -14%;
+  left: 49%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent !important;
+}
+
+.bub-chart-overlay-panel .infoTip {
+  font-family: Roboto medium;
+  min-width: 250px;
+  left: -500%;
+  top: 100%;
+  z-index: 1;
+  font-size: 12px;
+  padding: 3px 3px 3px 7px;
+  background: white;
+  position: absolute;
+  display: inline;
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bub-chart-overlay-panel .remove-infoTip {
+  position: absolute;
+  display: none;
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bub-chart-overlay-panel #tooltip p {
+  font-size: 12px !important;
+  letter-spacing: 0.35px !important;
+  line-height: 18px !important;
+}
+
+.bub-chart-overlay-panel .show {
+  .fa-angle-down {
+    transform: rotate(180deg);
+  }
+}
+
+.bub-chart-overlay-panel .bub-chart-overlay-header-content {
+  .header-span {
+    // border-right: 2px solid #ddd !important;
+    margin: 0 6px;
+    .header-border {
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
+  }
+
+  .header-title {
+    padding: 0 !important;
+  }
+}
+
+.bub-chart-overlay-panel .active-header {
+  margin-bottom: -5px !important;
+  font-weight: bold;
+  // text-decoration: underline;
+  border-bottom: 2px solid black;
+}
+
+.bub-chart-overlay-panel .legend {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  text-align: right;
+  line-height: 30px;
+}
+
+.bub-chart-overlay-panel .txt-align-start {
+  text-align: start;
+}
+
+.bub-chart-overlay-panel .fill-grey {
+  fill: #7f7f74;
+}
+
+.bub-chart-overlay-panel .fill-white {
+  fill: white;
+}
+
+.bub-chart-overlay-panel .align-right {
+  text-align: right !important;
+}
+.bub-chart-overlay-panel .max-width {
+  width: max-content !important;
+}
+
+.bub-chart-overlay-panel .padding-right-5 {
+  padding-right: 5px;
+}
+
+.bub-chart-overlay-panel .color-grey {
+  color: #7f7f74 !important;
+}
+
+.bub-chart-overlay-panel .legend {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  text-align: right;
+  line-height: 30px;
+}
+
+.bub-chart-overlay-panel .right-legend {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  text-align: left;
+  line-height: 30px;
+}

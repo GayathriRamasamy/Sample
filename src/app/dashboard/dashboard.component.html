@@ -1,0 +1,90 @@
+<div>
+    <div class="container-fluid border">
+        <div class="top-dropdown" *ngIf='headerDropdown'>
+            <span ngbDropdown placement="bottom-right" #topRegionDropDown="ngbDropdown" class="item">
+                <span id="categoryDropdown" class="cursor-pointer" ngbDropdownToggle>{{currentTopHeaderRegion}}
+                    <em  class="fa fa-angle-down f-icon fontWeight"></em>
+                </span>
+                <ul ngbDropdownMenu class="custom-dropdown-menu min-width-100" aria-labelledby="categoryDropdown">
+                    <li ngbDropdownItem class="custom-dropdown-menu-item cursor-pointer"
+                        (click)="topRegionDropDown.close()">
+                        <span> {{currentTopHeaderRegion}}
+                            <em  class="fa fa-angle-down f-icon fontWeight"></em>
+                        </span>
+                    </li>
+                    <li ngbDropdownItem class="custom-dropdown-menu-item"
+                        *ngFor="let region of headerDropdownValues.regions" (click)="updateFilterByRegion(region)">
+                        {{region.Code}}
+                    </li>
+                </ul>
+            </span>
+            <span ngbDropdown class="item position-relative overflow-ellipsis" #topCategoryDropDown="ngbDropdown">
+                <span *ngIf='!selectedCategoies?.length' id="categoryDropdown" class="cursor-pointer" ngbDropdownToggle>All Categories
+                    <!-- <em  class="fa fa-angle-down f-icon fontWeight"></em> -->
+                </span>
+
+                <span id="categoryDropdown" class="cursor-pointer" *ngFor='let category of selectedCategoies'
+                    ngbDropdownToggle>{{category | titlecase }}
+                    <span *ngIf='selectedCategoies?.length>1'> - </span>
+                </span>
+                <span id="categoryDropdown" class="cursor-pointer" ngbDropdownToggle>
+                    <em class="fa fa-angle-down f-icon fontWeight"></em>
+                </span>
+
+                <div *ngIf='headerDropdownValues.categories' class='categoryDropdown' ngbDropdownMenu
+                    aria-labelledby="categoryDropdown">
+                    <div class='dropdownList'>
+                        <div class='categorySpan cursor-pointer' (click)="topCategoryDropDown.close()">
+                            <span class='categoryItem'>
+                                <span *ngIf='!selectedCategoies?.length'>
+                                    All categories
+                                </span>
+                                <span *ngFor='let category of selectedCategoies'>{{category | titlecase }}
+                                    <span *ngIf='selectedCategoies?.length>1'> - </span>
+                                </span>
+                            </span>
+                            <span>
+                                <em class="fa fa-angle-up f-icon fontWeight"></em>
+                            </span>
+                        </div>
+                        <facet [options]="headerDropdownValues.categories" [facetTitle]="'All Categories'"
+                            (onChange)="updatedCategory($event)"></facet>
+                    </div>
+                </div>
+            </span>
+            <span ngbDropdown placement="bottom-right" class="item" #topAccountDropDown="ngbDropdown">
+                <span id="categoryDropdown" class="cursor-pointer" ngbDropdownToggle>{{currentTopHeaderAccount}}
+                    <em  class="fa fa-angle-down f-icon fontWeight"></em>
+                </span>
+                <ul ngbDropdownMenu class="custom-dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li ngbDropdownItem class="custom-dropdown-menu-item cursor-pointer">
+                        <span (click)="topAccountDropDown.close()">{{currentTopHeaderAccount}}
+                            <em  class="fa fa-angle-down f-icon fontWeight"></em>
+                        </span>
+                    </li>
+                    <li ngbDropdownItem class="custom-dropdown-menu-item"
+                        *ngFor="let account of headerDropdown['Account'] | keyvalue"
+                        (click)="updateFilterByAccount(account.key)">{{account.value}}</li>
+                </ul>
+            </span>
+        </div>
+        <div class="title">
+            <img [src]='leftArrow' class="leftArrow"> {{dashboardName}}
+        </div>
+
+        <div>
+            <mat-card class="card-container">
+                <div>
+                    <!-- Header module -->
+                    <app-header (removeFilter)='onRemoveFilter($event)' (cancelFilter)='cancelFilters($event)' (resetFilters) ='resetFilters()'></app-header>
+                </div>
+                <div>
+                    <!-- chart module have bubblechart, column chart and barchart -->
+                    <app-chart-container></app-chart-container>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<!-- <app-spinner *ngIf="showAppSpinner" [msg]="appSpinnerMsg"></app-spinner> -->

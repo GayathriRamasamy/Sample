@@ -1,0 +1,248 @@
+#tooltip .tooltiptext {
+  min-width: 250px;
+  left: -500%;
+  font-size: 13px;
+  font-family: Roboto;
+}
+
+.bub-chart-overlay-main-header {
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bub-chart-overlay-header {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  padding: 0px 0px 0px 15px;
+}
+
+.bub-chart-overlay-top-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: auto 0;
+}
+
+.bub-chart-overlay-header-content {
+  color: #363630;
+  font-family: Georgia;
+  letter-spacing: 0.28px;
+  margin: auto 5px !important;
+  font-size: 24px;
+  line-height: 27px;
+  display: inline-flex;
+}
+
+.disable-toggle {
+  margin: auto 0px;
+}
+
+.header-title {
+  margin: 0px !important;
+  font-size: 24px;
+  line-height: 27px;
+}
+
+.info-icon {
+  margin: auto 0px;
+  margin-top: 3px;
+}
+
+.close-icon {
+  height: 20px;
+  width: 21px;
+}
+
+.overlay-close {
+  margin: auto 10px;
+}
+
+.overlay-header-toggle {
+  margin: auto 0;
+}
+
+.overlay-header-toggle ul {
+  list-style: none;
+  display: inline-flex;
+  padding: 0px !important;
+  margin: 0px !important;
+  height: 14px;
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.29px;
+  line-height: 14px;
+}
+
+.overlay-header-toggle ul li {
+  padding: 0px 5px !important;
+  border-right: 1px solid grey;
+  cursor: pointer;
+}
+
+.overlay-header-toggle ul li:last-child {
+  border: none !important;
+}
+
+.active-toggle {
+  font-weight: bold;
+}
+
+i {
+  cursor: pointer;
+}
+
+.bub-chart-overlay-selection {
+  position: relative;
+  height: 16px;
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+  text-align: center;
+  margin: auto;
+}
+
+.bub-chart-overlay-selection::after {
+  content: "\f078";
+  font: normal normal normal 17px/1 FontAwesome;
+  color: grey;
+  padding: 0px 0px 0px 10px;
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.bub-chart-overlay-group-selection {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: auto;
+  float: right;
+  color: #333;
+  border: none;
+  word-break: normal;
+  padding: 0px 20px 0px 0px;
+}
+
+.bub-chart-overlay-group-selection:focus {
+  outline-color: transparent;
+}
+
+.bub-chart-overlay-category-selection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.bub-chart-overlay-svg-container {
+  margin: 0px 0px 30px 0px !important;
+  padding: 10px 0 0 0 !important;
+  display: flex;
+}
+
+.chart-header-toggle-label {
+  cursor: pointer;
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  box-shadow: none !important;
+}
+
+.chart-header-list ul {
+  position: fixed;
+  box-shadow: none !important;
+}
+
+.chart-header-list li:hover {
+  color: #00addc;
+}
+
+.chart-header-list li {
+  cursor: pointer;
+  padding: 5px 5px 5px 10px;
+  color: #7f7f74;
+  font-family: Roboto medium;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+}
+
+.chart-header-list {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  // top : 24px !important;
+  // left : 82px !important;
+  // transform: translate(25px, 10px);
+}
+
+#overlay-chart-header-dropdown {
+  height: 30px;
+  margin: auto 0;
+}
+
+
+.bub-legend-title, .bub-legend-body {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+
+
+.bub-legend-body li {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.bub-legend-title {
+  margin: auto 0;
+}
+
+.bub-chart-right-legend {
+  width: 25%;
+  margin: 20px auto auto 30px; 
+  height: auto;
+  display: flex; 
+  flex-direction: column;
+}
+
+.bub-chart-overlay-right-legend-title-content {
+  width: 100%;
+}
+
+.bub-chart-overlay-right-legend-body-content {
+  width: 100%; 
+  overflow: auto; 
+  max-height: 450px;
+}
+
+.bub-chart-overlay-right-legend {
+  margin: auto;
+}
+
+.disableDropdownOption {
+  color: #cfcfcf !important;
+  pointer-events: none;
+}
+
+.disableToggle {
+  pointer-events: none;
+}

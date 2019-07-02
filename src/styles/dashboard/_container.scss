@@ -1,0 +1,123 @@
+@import "../dashboard/_colors.scss";
+
+.container-fluid {
+  .title {
+    margin-bottom: 15px;
+    height: 27px;
+    width: 590.63px;
+    color: $zeus;
+    font-family: Georgia;
+    font-size: 24px;
+    letter-spacing: 0.38px;
+    line-height: 27px;
+    left: 24px;
+    margin-left: -14px;
+  }
+}
+.main-container-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+.main-container {
+  border-top: none;
+  display: block;
+  margin: 0px 18px 0px 19px !important;
+
+  .container-header {
+    display: flex;
+    background: $iff-primary;
+    font-size: 14px;
+    line-height: 16px;
+    justify-content: space-between;
+    margin-right: 1px;
+  }
+
+  .header-content {
+    display: inline-flex;
+    letter-spacing: 0.38px;
+    margin: 5px 0px 5px 19px;
+    text-align: center;
+    height: 40px;
+    width: 441px;
+    color: #FFFFFF;
+    font-weight: 300;
+  }
+
+  .header {
+    border-right: 1px solid #D9D9D1;
+    padding: 6px 20px 5px 0px;
+    height: 30px;
+    margin: 5px 5px 5px 0px;
+  }
+
+  .d-icon {
+    margin: 7px 10px 10px 0px !important;
+    height: 8px;
+    width: 11px;
+  }
+}
+
+.card-container {
+  margin: 16px 6px 20px -7px;
+  padding: 0px !important;
+  border-radius: 0px !important;
+}
+
+.main-legends {
+  width: 100%;
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 14px;
+    color: #363630;
+    border-right: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+
+  .legends-circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin: 5px;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  .legend-title {
+    vertical-align: middle;
+  }
+  .legendContent {
+    min-height: 40px;
+    vertical-align: middle;
+    padding: 7px 7px;
+    & > span {
+      display: inline-block;
+    }
+  }
+}
+
+.chart-container {
+  display: inline-block;
+    width: 100%;
+    /* border: 1px solid #ececec; */
+    margin-bottom: -6px;
+    /* border-top: none; */
+    /* border-right: 1px solid #DDDDDD; */
+    border: 1px solid #DDDDDD;
+}
+
+.bubble-chart {
+  width: 35%;
+  height: auto;
+  float: left;
+}
+
+.column-chart {
+  width: 65%;
+  height: auto;
+  float: left;
+}
+
+.margin-auto {
+  margin: auto;
+}

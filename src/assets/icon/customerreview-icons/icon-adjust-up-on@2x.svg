@@ -1,0 +1,17 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+ <title>icon-adjust-up-on@2x</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="icon-adjust-up-on">
+   <circle r="12" cy="12" cx="12" fill="#f5a846" id="Oval"/>
+   <path fill-rule="nonzero" fill="#f5a846" stroke="#FFFFFF" id="Shape" d="m12.09486,6.04101l4.36282,4.46295c0.12838,0.13111 -0.06433,0.32792 -0.19271,0.19681l-4.03077,-4.11613c-0.05442,-0.05557 -0.09799,-0.03762 -0.09799,0.03941l0,10.23676c0,0.07684 -0.06106,0.13919 -0.13629,0.13919c-0.07523,0 -0.13629,-0.06235 -0.13629,-0.13919l0,-10.23676c0,-0.07838 -0.04387,-0.09468 -0.09798,-0.03941l-4.0305,4.11613c-0.12839,0.13111 -0.32138,-0.0657 -0.19272,-0.19681l4.35793,-4.46295c0.0531,-0.05438 0.14076,-0.05497 0.1945,0z"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,62 @@
+<div class="container-header">
+
+  <div class="bar-search">
+    <i class="fa fa-search" id="searchIcon" aria-hidden="true"></i>
+    <input  class="inputSearch" type="text" placeholder='{{placeholder}}' name="search"
+      (keyup)='getSearchData()' [(ngModel)]="searchText">
+      <i *ngIf="searchText"  class="fa fa-times" (click)="clearSearch()"></i>
+  </div>
+
+
+  <div class="heading">
+    <span class="header-content p-0" *ngIf="enableGroupDetail"> {{ groupDetail }} </span>
+    <span class="f2-icon" ngbDropdown placement="bottom-left" #groupByDropdown="ngbDropdown">
+      <em style="margin: 3px" class="fa fa-angle-down" id="dropdownTypes" ngbDropdownToggle></em>
+      <ul ngbDropdownMenu class="sortby-dropdown" aria-labelledby="dropdownTypes">
+        <li  class="sortby-dropdown-item" *ngFor="let types of this.DD_Group | keyvalue"
+          [ngClass]="{'disableEvent' : types.value === groupByValue }" (click)="getGroupData(types); groupByDropdown.close()">
+          <u [ngStyle]="{'font-weight' : types.value === groupByValue ? 600 : '' }">{{ types.value }}</u>
+        </li>
+      </ul>
+    </span>
+    <!-- <span *ngIf="start!=0 ">{{end}}</span> -->
+  </div>
+</div>
+<!-- <app-loading *ngIf="enableLoader"></app-loading> -->
+<div class="main">
+  <div class="firstLayer">
+    <div #chartXaxis class="groupdropdown is-wide" ngbDropdown placement="bottom-right">
+      <a id="value" ngbDropdownToggle>
+        <label id="sortLabel" class="mb-0 align-self-center text-muted mr-1"> {{ sortby }} </label>
+        <span id="selectedSort">{{ sortByValue }} &nbsp;</span>
+        <em class="fa fa-angle-down"></em>
+      </a>
+      <ul ngbDropdownMenu class="dropdown-menu sortby-dropdown-list" aria-labelledby="value">
+        <li ngbDropdownItem class="dropdown-item" *ngFor="let item of DD_Sort | keyvalue:sortFn">
+          <span id="project{{ item }}Option" class="sort sortby-option" [ngClass]="{'is-asc': sortByKey === item.key && direction === 'DESC',
+          'is-desc': sortByKey === item.key && direction === 'ASC' }" (click)="getSortData(item)"
+            tabindex="-1">{{ item.value }}</span>
+        </li>
+      </ul>
+      <div class='plotXaxis' id="Xaxis"></div>
+    </div>
+  </div>
+
+  <div class="bar-container">
+    <div id="bar-container-scroll" class="row">
+      <div class="col-sm-3" [style.height.px]="yaxisHeight">
+        <div class='plotYaxis'></div>
+        <div class="bar-chart-y-axis-tooltip" #barChartYAxisTooltip></div> 
+        <ul class="classify-list">
+          <!-- <li class='liclass' *ngFor="let label of YLabelData; let i = index" [innerHTML]=label>
+          </li> -->
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <div id="barchart" #barChartContent></div>
+        <div class="bar-chart-tooltip" #barChartTooltip></div>
+      </div>
+    </div>
+    <!-- <div class="bar-chart-tooltip" #barChartTooltip></div> -->
+  </div>
+</div>

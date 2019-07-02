@@ -1,0 +1,51 @@
+<div class="mdl-textfield is-upgraded" [class.is-focused]="popoverComponent.isVisible || focused" [class.is-disabled]="disabled"
+  [class.is-dirty]="isDirty()">
+  <span [attr.tabindex]="!disabled ? 0 : null" (focus)="onFocus($event);">
+  </span>
+  <input #selectInput tabindex="-1" [readonly]="disabled || !autocomplete || !focused" class="mdl-textfield__input" (click)="toggle($event)"
+    (change)="$event.stopPropagation()" (focus)="onInputFocus($event);" [placeholder]="placeholder ? placeholder : ''" [attr.id]="textfieldId"
+    [value]="text">
+  <span class="mdl-select__toggle material-icons" (click)="toggle($event)">
+    keyboard_arrow_down
+  </span>
+  <label class="mdl-textfield__label" [attr.for]="textfieldId">{{ label }}
+    <i class="fa fa-asterisk" *ngIf="showStar"></i>
+  </label>
+  <span class="mdl-textfield__error"></span>
+  <mdl-popover #popover tabindex="-1" [class.direction-up]="directionUp" [class.mdl-popover--above]="autocomplete" [hide-on-click]="!multiple && AllowHideOnClick"
+    [style.minWidth.%]="100" [ngClass]="{'new-position':topPosition}">
+    <div class="mdl-list mdl-shadow--6dp">
+      <div *ngIf="IsNewBrand && !IsNewSubBrand" (click)="selectedNewBrand()" class="select-head-cont">
+        <i class="fa fa-plus"></i> Request New Brand
+      </div>
+      <div *ngIf="!IsNewBrand && IsNewSubBrand" (click)="selectedNewSubBrand()" class="select-head-cont">
+        <i class="fa fa-plus"></i> Request New Sub-Brand
+      </div>
+      <div *ngIf="ShowNewBrandPopup; else mainContent">
+        <div #newBrandForm class="add-new-brand">
+          <form>
+            <div class="mgn-btm-twnty wdth100percent">
+              <iff-mdl-textfield *ngIf="IsNewBrand && !IsNewSubBrand" (ngModelChange)="changeToUpper($event, 'newBrand')" showStar="true" type="text" [ngModel]="newBrand" label="New Brand Name"
+                required name="NewBrandName" maxlength="40" floating-label>
+              </iff-mdl-textfield>
+            </div>
+            <div class="mgn-btm-twnty wdth100percent">
+              <iff-mdl-textfield *ngIf="IsNewBrand || IsNewSubBrand" (ngModelChange)="changeToUpper($event, 'newSubBrand')" showStar="true" type="text" [ngModel]="newSubBrand" label="New Sub-Brand Name"
+                required name="NewSubBrandName" maxlength="40" floating-label>
+              </iff-mdl-textfield>
+            </div>
+            <div class="pull-right">
+              <button class="small-button" (click)="closeNewBrandPopover()">Cancel</button>
+              <button class="small-button clr last" [disabled]="isRequestDisabled()" (click)="createNewBrandAndSubbrand()">Request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ng-template #mainContent>
+        <div class="scrollable-content">
+          <ng-content *ngIf="popoverComponent.isVisible"></ng-content>
+        </div>
+      </ng-template>
+    </div>
+  </mdl-popover>
+</div>

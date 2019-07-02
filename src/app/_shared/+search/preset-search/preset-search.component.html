@@ -1,0 +1,66 @@
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <div class="modal-header">
+            <div class="modal-header-inner">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <h4 class="margin0 font-size-27">Preset Filters</h4>
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <button aria-label="Close" class="close"  (click)="activeModal.close('close')" type="button">
+                            <i aria-hidden="true" class="icon-close">
+                                <span class="close-line1"></span>
+                                <span class="close-line2"></span>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+        <div class="modal-body">
+            <div class="p-lr-30">
+                <div class="row">
+                    <div class="col-sm-12 wdth100percent mgn-btm-ten mgn-tp-twnty red-border-non">
+                      <iff-mdl-select [(ngModel)]="selectedSearch" label="Preset Filter Title" name="searchname" floating-label
+                        (change)="onChangeSavedSearch(selectedSearch)">
+                            <mdl-option mdl-ripple *ngFor="let item of savedSearchList" [value]="item">{{item.SearchName}}</mdl-option>
+                      </iff-mdl-select>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 wdth100percent mgn-btm-ten red-border-non">
+                        <iff-mdl-textfield type="text" label="Search Term(s)"  [(ngModel)]="selectedSearch.SearchTerm" floating-label></iff-mdl-textfield>
+                      </div>
+                </div>
+                <div class="row disable-pointer">
+                    <div class="col-sm-12-custom mgn-btm-ten border-bottom">
+                        <label class="search-filter-label">Filter(s)</label>
+                        <selected-facet [facets]="seletedFacetCollection"  class="mul-tag-input"></selected-facet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="modal-footer-inner">
+            <div class="row">
+                <div class="col-sm-5">
+                    <button class="small-button line mr-15" [disabled]="!selectedSearch.ID" (click)="onDeleteSavedSearch();">
+                        <i class="fa fa-trash-o"></i>
+                        DELETE
+                    </button>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <button class="small-button line mr-15" (click)="activeModal.close('close')">
+                        CANCEL
+                    </button>
+                    <button  class="small-button clr last" [disabled]="!selectedSearch.ID" (click)="onLoad()">
+                        LOAD
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

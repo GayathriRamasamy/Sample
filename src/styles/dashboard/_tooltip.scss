@@ -1,0 +1,366 @@
+@import "./colors";
+
+#tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: $white;
+  color: $dropdown-content-color;
+  position: absolute;
+  bottom: 120%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: $white transparent transparent transparent;
+}
+
+#tooltip .infoTip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 48%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: $white transparent transparent transparent;
+}
+
+#tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+#tooltip .tooltiptext tbody tr {
+  padding: 5px !important;
+}
+
+// Tooltip - card
+:host /deep/ .chart-tooltip-content table {
+  list-style: none;
+  padding: 0px !important;
+  margin: 5px 7px 5px 10px;
+}
+// Tooltip - card
+:host /deep/ .chart-tooltip-content  {
+min-width: 280px;
+}
+
+:host /deep/ .chart-tooltip-content table td {
+  color: #363630;
+  font-family: Roboto medium;
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  line-height: 18px;
+}
+
+:host /deep/ .chart-tooltip-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  // width: 270px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .chart-tooltip-header {
+  background: #cbccc7 !important;
+  display: flex;
+  justify-content: flex-start;
+}
+
+:host /deep/ .chart-tooltip-header-icon {
+  height: 50px;
+  width: 50px;
+
+}
+
+:host /deep/ .chart-tooltip-header-ipc-icon-detail {
+  margin: auto 0;
+}
+
+:host /deep/ .chart-tooltip-header-ipc-icon-detail .first-child-right-bar:first-child {
+  border-right: 2px solid grey;
+  padding-left: 0px;
+}
+:host /deep/ .grey-font {
+  // color: #CBCCC7;
+  color: #7f7f75;
+}
+
+:host /deep/ .chart-tooltip-header-ipc-icon-detail .first-child-right-bar {
+  padding: 0px 5px;
+  color: #363630;
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  line-height: 18px;
+}
+
+:host /deep/ .chart-tooltip-header-icon img {
+  height: 60%;
+  width: 60%;
+  margin: 10px;
+  padding: 5px;
+  background: black;
+  border-radius: 50px;
+}
+
+:host /deep/ .img-flag img {
+  width: 17px;
+  height: 21px;
+}
+
+:host /deep/ .chart-tooltip-header-ipc-detail {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+:host /deep/ .chart-tooltip-card::after {
+  content: "\f0d7";
+  font: normal normal normal 30px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 49%;
+  border-color: white;
+}
+
+:host /deep/ .chart-tooltip-header-ipc {
+  margin: auto 0;
+}
+
+:host /deep/ .chart-tooltip-header-ipc h5 {
+  color: #363630 !important;
+  font-family: Georgia !important;
+  font-size: 18px !important;
+  letter-spacing: 0.28px !important;
+  line-height: 21px !important;
+}
+
+:host /deep/ .bold {
+  font-weight: bold;
+}
+
+:host /deep/ .point-five-opacity {
+  opacity: 0.5;
+}
+
+:host /deep/ .legend-format {
+  color: $warmgrayplusone;
+  letter-spacing: 0.29px;
+  line-height: 30px;
+  font-size: 12px;
+  font-family: Roboto medium;
+}
+
+:host /deep/ .text-anchor-end {
+  text-anchor: end;
+}
+
+:host /deep/ .legend-rect {
+  width: 20px;
+  height: 20px;
+}
+
+:host /deep/ .right-side-tooltip {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .right-side-tooltip::after {
+  content: "\f0d7";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 101%;
+  left: 0.1%;
+  border-color: white;
+}
+
+
+:host /deep/ .left-side-bar-chart-tooltip {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .left-side-bar-chart-tooltip::after {
+  content: "\f0d7";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 101%;
+  left: 95%;
+  border-color: white;
+}
+
+
+
+:host /deep/ .left-side-tooltip {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .left-side-tooltip::after {
+  content: "\f0d7";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 49%;
+  left: 100%;
+  border-color: white;
+}
+
+:host /deep/ p {
+  font-size: 12px !important;
+  letter-spacing: 0.35px !important;
+  line-height: 18px !important;
+}
+
+
+:host /deep/ .col-chart-x-axis-tooltip-tick {
+  text-align: center;
+  background: white;
+  width: 100px;
+  font-size: 12px;
+  font-family: Roboto medium;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .col-chart-x-axis-tooltip-tick::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 48.5%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: $white transparent transparent transparent;
+}
+
+:host /deep/ .start-tooltip-header {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .start-tooltip-header::after {
+  content: "\f0d8";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: #cbccc7;
+  position: absolute;
+  top: -2%;
+  left: 0%;
+  border-color: white;
+}
+
+
+:host /deep/ .middle-tooltip-header {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .middle-tooltip-header::after {
+  content: "\f0d8";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: #cbccc7;
+  position: absolute;
+  top: -2%;
+  left: 48.5%;
+  border-color: white;
+}
+
+:host /deep/ .end-tooltip-header {
+  display: flex !important;
+  flex-direction: column !important;
+  background: white !important;
+  color: black !important;
+  min-width: 260px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .end-tooltip-header::after {
+  content: "\f0d8";
+  font: normal normal normal 25px/0 FontAwesome;
+  color: #cbccc7;
+  position: absolute;
+  top: -2%;
+  left: 94.5%;
+  border-color: white;
+}
+
+:host /deep/ .top-center-tooltip {
+  text-align: start;
+  background: white;
+  min-width: 100px;
+  font-size: 12px;
+  font-family: Roboto medium;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .top-center-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 48.5%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: $white transparent transparent transparent;
+}
+
+:host /deep/ .bottom-center-tooltip {
+  text-align: start;
+  background: white;
+  min-width: 100px;
+  font-size: 12px;
+  font-family: Roboto medium;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host /deep/ .bottom-center-tooltip::after {
+  content: "";
+  position: absolute;
+  top: -36%;
+  left: 48.5%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ffff transparent;
+}
+
+:host /deep/ .bar-chart-y-axis-tooltip-content {
+  text-align: start;
+  background: white;
+  font-size: 12px;
+  font-family: Roboto medium;
+  padding: 5px;
+} 

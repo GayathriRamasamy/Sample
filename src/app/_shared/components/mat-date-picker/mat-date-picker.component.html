@@ -1,0 +1,11 @@
+
+    <mat-form-field class="d-block w-100 mb-4 is-datepicker" >
+        <input type="text" name="datepicker" matInput   [matDatepicker]="picker" required [(ngModel)]="model" (ngModelChange)="onSelectedDate(model)"
+          [min]="minDate" [max]="maxDate" [placeholder]="placeholder" autocomplete="off">
+        <mat-datepicker-toggle  class="mat-datepicker-toggle" matSuffix   [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+ 
+

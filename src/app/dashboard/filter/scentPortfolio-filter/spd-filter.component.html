@@ -1,0 +1,417 @@
+<div class="searchFilters mt-2">
+    <div class="head d-flex align-items-center">
+        <h3 class="head-text">{{configData.filter}}</h3>
+        <div class="button-group ml-auto">
+            <div class="button-group pull-right">
+                <a class="header-white-btn" (click)="onClickResetFilters()">{{configData.resetFilter}}</a>
+                <button class="small-button delete" type="button"
+                    (click)="onClickCancelFilters()">{{configData.cancel}}</button>
+                <button class="small-button clr last" type="button"
+                    (click)="onClickApplyFilters()">{{configData.applyFilter}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-20p col-lg-2 width15">
+                <div>
+                    <h3>{{configData.fragrance}}</h3>
+                </div>
+                <div class="presetFilter-item-list padding10">
+                    <app-slider [min]="min" [max]="max" [rangeValue]="mnc.rangeValue" [showTitle]=false
+                        (onChange)='onChangeMNC($event)' [title]="'MNC'" [minTitle]="'Max MNC'" [maxTitle]="'(USD/kg)'">
+                    </app-slider>
+                </div>
+
+
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.ipcName}}</label>
+                        <!-- <puma-multiselect [identifyBy]="'Id'" (Select)="onAddPhilosophy($event)"
+                                (DeSelect)="onRemovePhilosophy($event)" (SelectAll)="onSelectAllPhilosophy($event)"
+                                (DeSelectAll)="onRemoveAllPhilosophy($event)">
+                            </puma-multiselect> -->
+                    </div>
+                </div>
+                <div class="padding-right-10">
+                    <facet [options]="cloneMaster.hasCapsuleData" [facetTitle]="configData.hasCapsule"
+                        (onChange)="onChangeHasCapsule($event)"></facet>
+                </div>
+
+
+                <div style="padding-top: 10px;">
+                    <h3>{{configData.inspiration}}</h3>
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace">
+                            <label class="mgn-btm-ten required_start">{{configData.inspirationData.PHILOSOPHY}}</label>
+                            <puma-multiselect *ngIf="cloneMaster?.philosophy" [options]="cloneMaster?.philosophy"
+                                [settings]="settings" [(ngModel)]="selected.philosophy"
+                                [displayBy]="'Description'" [identifyBy]="'ID'" (Select)="onAddPhilosophy($event)"
+                                (DeSelect)="onAddPhilosophy($event)" (SelectAll)="onSelectAllPhilosophy($event)"
+                                (DeSelectAll)="onRemoveAllPhilosophy($event)">
+                            </puma-multiselect>
+                        </div>
+
+                    </div>
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace">
+                            <label
+                                class="mgn-btm-ten required_start">{{configData.inspirationData.INSPIRATIONALBRAND}}</label>
+                            <puma-multiselect *ngIf='cloneMaster?.cfBrandInspiration'
+                                [options]="cloneMaster?.cfBrandInspiration" [(ngModel)]="selected.cfBrandInspiration"
+                                [settings]="settings" [displayBy]="'Description'" [identifyBy]="'ID'"
+                                (Select)="onAddInspirationBrand($event)" (DeSelect)="onAddInspirationBrand($event)"
+                                (SelectAll)="onSelectAllInspirationBrand($event)"
+                                (DeSelectAll)="onRemoveAllInspirationBrand($event)">
+                            </puma-multiselect>
+                        </div>
+
+                    </div>
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace">
+                            <label
+                                class="mgn-btm-ten required_start">{{configData.inspirationData.INSPIRATIONALBRANDVARIANT}}</label>
+                            <puma-multiselect *ngIf='cloneMaster?.cfBrandVariantInspiration'
+                                [settings]="settings" [options]="cloneMaster?.cfBrandVariantInspiration"
+                                [(ngModel)]="selected.cfBrandVariantInspiration" [displayBy]="'Description'"
+                                [identifyBy]="'ID'" (Select)="onAddInspirationBrandVariant($ent)"
+                                (DeSelect)="onAddInspirationBrandVariant($ent)"
+                                (SelectAll)="onSelectonAddInspirationBrandVariant($event)"
+                                (DeSelectAll)="onRemoveAllonAddInspBrandVariant($event)">
+                            </puma-multiselect>
+                        </div>
+
+                    </div>
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace">
+                            <label
+                                class="mgn-btm-ten required_start">{{configData.inspirationData.SUGGESTEDREGIONS}}</label>
+                            <puma-multiselect *ngIf='cloneMaster?.suggestedRegion'
+                                [options]="cloneMaster?.suggestedRegion" [settings]="defaultSettings"
+                                [(ngModel)]="selected.suggestedRegion" [displayBy]="'Code'" [identifyBy]="'Id'"
+                                (Select)="onAddSuggestedRegion($ent)" (DeSelect)="onAddSuggestedRegion($ent)"
+                                (SelectAll)="onSelectAllSuggestedRegion($event)"
+                                (DeSelectAll)="onRemoveAllSuggestedRegion($event)">
+                            </puma-multiselect>
+                        </div>
+                    </div>
+                    <div class="filter-content">
+                        <div class="mgn-btm-twnty labelspace">
+                            <label
+                                class="mgn-btm-ten required_start">{{configData.inspirationData.SUGGESTEDCOUNTRIES}}</label>
+                            <puma-multiselect *ngIf='cloneMaster?.suggestedCountries'
+                                [options]="cloneMaster?.suggestedCountries" [settings]="defaultSettings"
+                                [(ngModel)]="selected.suggestedCountries" [displayBy]="'Description'"
+                                [identifyBy]="'Id'" (Select)="onAddSuggestedCountry($event)"
+                                (DeSelect)="onAddSuggestedCountry($event)"
+                                (SelectAll)="onSelectAllSuggestedCountry($event)"
+                                (DeSelectAll)="onRemoveAllSuggestedCountry($event)">
+                            </puma-multiselect>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="filter-title">
+                    <h3>{{configData.benifit}}</h3>
+                </div>
+                <div class="padding-right-10">
+                    <facet [options]="cloneMaster.benefitPlatformOptions" [facetTitle]="'All Benefit Platforms'"
+                        (onChange)="onChangeBenefitPlatformOptions($event)"></facet>
+                </div>
+
+
+            </div>
+            <div class="col-sm-20p col-lg-2">
+                <h3>{{configData.olfactive}}</h3>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.olfactiveData.olfactiveFamily}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.olfactiveFamilyData'
+                            [options]="cloneMaster?.olfactiveFamilyData" [settings]="settings"
+                            [(ngModel)]="selected.olfactiveFamilyData" [displayBy]="'Description'" [identifyBy]="'ID'"
+                            (Select)="onAddOlfactiveFamily($event)" (DeSelect)="onAddOlfactiveFamily($event)"
+                            (SelectAll)="onSelectAllOlfactiveFamily($event)"
+                            (DeSelectAll)="onRemoveAllOlfactiveFamily($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label
+                            class="mgn-btm-ten required_start">{{configData.olfactiveData.olfactiveSubFamily}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.olfactiveSubFamilyData'
+                            [options]="cloneMaster?.olfactiveSubFamilyData" [settings]="settings"
+                            [(ngModel)]="selected.olfactiveSubFamilyData" [displayBy]="'Description'"
+                            [identifyBy]="'ID'" (Select)="onAddOlfactiveSubFamily($event)"
+                            (DeSelect)="onAddOlfactiveSubFamily($event)"
+                            (SelectAll)="onSelectAllOlfactiveSubFamily($event)"
+                            (DeSelectAll)="onRemoveAllOlfactiveSubFamily($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.olfactiveData.keyword}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.keyword' [options]="cloneMaster?.keyword"
+                            [(ngModel)]="selected.keyword" [settings]="settings" [displayBy]="'Description'"
+                            [identifyBy]="'ID'" (Select)="onAddKeyword($event)" (DeSelect)="onAddKeyword($event)"
+                            (SelectAll)="onSelectAllKeyword($event)" (DeSelectAll)="onRemoveAllKeyword($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.olfactiveData.descriptors}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.descriptors' [options]="cloneMaster?.descriptors"
+                            [(ngModel)]="selected.descriptors" [settings]="settings" [displayBy]="'Description'"
+                            [identifyBy]="'ID'" (Select)="onAddDescriptors($event)"
+                            (DeSelect)="onAddDescriptors($event)" (SelectAll)="onAddAllDescriptors($event)"
+                            (DeSelectAll)="onRemoveAllDescriptors($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-title">
+                    <h3>{{configData.contribution}}</h3>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.contributionData.leadCreative}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.leadCreative' [options]="cloneMaster?.leadCreative"
+                            [(ngModel)]="selected.leadCreative" [settings]="defaultSettings" [displayBy]="'DisplayName'"
+                            [identifyBy]="'Id'" (Select)="onAddLeadCreative($event)"
+                            (DeSelect)="onAddLeadCreative($event)" (SelectAll)="onSelectAllLeadCreative($event)"
+                            (DeSelectAll)="onRemoveAllLeadCreative($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.contributionData.otherCreative}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.otherCreative' [options]="cloneMaster?.otherCreative"
+                            [(ngModel)]="selected.otherCreative" [settings]="defaultSettings"
+                            [displayBy]="'DisplayName'" [identifyBy]="'Id'" (Select)="onAddOtherCreative($event)"
+                            (DeSelect)="onAddOtherCreative($event)" (SelectAll)="onSelectAllOtherCreative($event)"
+                            (DeSelectAll)="onRemoveAllOtherCreative($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.contributionData.perfumer}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.perfumer' [options]="cloneMaster?.perfumer"
+                            [(ngModel)]="selected.perfumer" [settings]="settings" [displayBy]="'DisplayName'"
+                            [identifyBy]="'UserID'" (Select)="onAddPerfumer($event)" (DeSelect)="onAddPerfumer($event)"
+                            (SelectAll)="onSelectAllPerfumer($event)" (DeSelectAll)="onRemoveAllPerfumer($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.contributionData.sdm}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.SDM' [options]="cloneMaster?.SDM"
+                            [(ngModel)]="selected.SDM" [settings]="settings" [displayBy]="'DisplayName'"
+                            [identifyBy]="'UserID'" (Select)="onAddSDM($event)" (DeSelect)="onAddSDM($event)"
+                            (SelectAll)="onSelectAllSDM($event)" (DeSelectAll)="onRemoveAllSDM($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-20p col-lg-2">
+                <h3>{{configData.category}}</h3>
+                <div class="margin-right-10 border-bottom">
+                    <facet [options]="cloneMaster?.category" [facetTitle]="'All Categories'"
+                        (onChange)="onChangeCategory($event)"></facet>
+                </div>
+
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.subcategory}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.subCategories' [options]="cloneMaster?.subCategories"
+                            [(ngModel)]="selected.subCategories" [settings]="defaultSettings"
+                            [displayBy]="'Description'" [identifyBy]="'Id'" (Select)="onAddSubCategory($event)"
+                            (DeSelect)="onAddSubCategory($event)" (SelectAll)="onSelectAllSubCategory($event)"
+                            (DeSelectAll)="onRemoveAllSubCategory($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-title">
+                    <h3>{{configData.endUse}}</h3>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.endUseData.endUse}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.endUse' [options]="cloneMaster?.endUse"
+                            [(ngModel)]="selected.endUse" [settings]="settings" [displayBy]="'Description'"
+                            [identifyBy]="'Id'" (Select)="onAddEndUse($event)" (DeSelect)="onAddEndUse($event)"
+                            (SelectAll)="onSelectAllEndUse($event)" (DeSelectAll)="onRemoveAllEndUse($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.endUseData.productNumber}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.productNumbers' [options]="cloneMaster?.productNumbers"
+                            [(ngModel)]="selected.productNumbers" [settings]="settings"
+                            [displayBy]="'Description'" [identifyBy]="'Id'" (Select)="onAddProductNumber($event)"
+                            (DeSelect)="onAddProductNumber($event)" (SelectAll)="onSelectAllProductNumber($event)"
+                            (DeSelectAll)="onRemoveAllProductNumber($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-title">
+                    <h3>{{configData.endUseData.sales}}</h3>
+                </div>
+                <div class="padding-right-10">
+                    <facet [options]="cloneMaster.sales" [facetTitle]="'All Sales'" (onChange)="onChangeSales($event)">
+                    </facet>
+                </div>
+
+            </div>
+            <div class="col-sm-20p col-lg-3">
+
+                <h3>{{configData.exclusivity}}</h3>
+                <div class="padding-right-10 border-bottom">
+                    <facet [options]="cloneMaster.exclusivity" [facetTitle]="'All Exclusivity'"
+                        (onChange)="onChangeExclusivity($event)"></facet>
+                </div>
+                <div class="padding-right-10 filter-title">
+                    <facet [options]="cloneMaster.showOptions" (onChange)="onChangeShowOptions($event)"></facet>
+                </div>
+
+                <div class="filter-title">
+                    <h3>{{configData.testResults}}</h3>
+                </div>
+                <div class="padding-right-10">
+                    <facet [options]="cloneMaster.testResultsOptions" (onChange)="onChangeTestResultsOptions($event)">
+                    </facet>
+                </div>
+
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.testDataMultiSelect.testRegion }}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.testRegion' [options]="cloneMaster?.testRegion"
+                            [(ngModel)]="selected.testRegion" [settings]="defaultSettings" [displayBy]="'Code'"
+                            [identifyBy]="'Id'" (Select)="onAddTestRegion($event)" (DeSelect)="onAddTestRegion($event)"
+                            (SelectAll)="onSelectAllTestRegion($event)" (DeSelectAll)="onRemoveAllTestRegion($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label
+                            class="mgn-btm-ten required_start">{{configData.testDataMultiSelect.testCountries}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.testCountries' [options]="cloneMaster?.testCountries"
+                            [(ngModel)]="selected.testCountries" [settings]="defaultSettings"
+                            [displayBy]="'Description'" [identifyBy]="'Id'" (Select)="onAddTestCountries($event)"
+                            (DeSelect)="onAddTestCountries($event)" (SelectAll)="onSelectAllTestCountries($event)"
+                            (DeSelectAll)="onRemoveAllTestCountries($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-20p col-lg-3">
+
+                <h3>{{configData.opportunity}}</h3>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label
+                            class="mgn-btm-ten required_start">{{configData.opportunityData.opportunityOwner}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.opportunityOwners'
+                            [options]="cloneMaster?.opportunityOwners" [settings]="settings"
+                            [(ngModel)]="selected.opportunityOwners" [displayBy]="'name'" [identifyBy]="'id'"
+                            (Select)="onAddOpportunityOwner($event)" (DeSelect)="onAddOpportunityOwner($event)"
+                            (SelectAll)="onSelectAllOpportunityOwner($event)"
+                            (DeSelectAll)="onRemoveAllOpportunityOwner($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.customer}}</label>
+                        <!-- <puma-multiselect *ngIf='cloneMaster?.projectOwner' [options]="cloneMaster?.projectOwner" [displayBy]="'name'"
+                            [settings]="defaultSettings" [identifyBy]="'Id'" (Select)="onAddProjectOwner($event)"
+                            (DeSelect)="onRemoveProjectOwner($event)" (SelectAll)="onSelectAllprojectOwner($event)"
+                            (DeSelectAll)="onRemoveAllprojectOwner($event)">
+                        </puma-multiselect> -->
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.projectOwner}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.projectOwner' [options]="cloneMaster?.projectOwner"
+                            [settings]="settings" [(ngModel)]="selected.projectOwner" [displayBy]="'name'"
+                            [identifyBy]="'id'" (Select)="onAddProjectOwner($event)"
+                            (DeSelect)="onAddProjectOwner($event)" (SelectAll)="onSelectAllprojectOwner($event)"
+                            (DeSelectAll)="onRemoveAllprojectOwner($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.projectManager}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.projectManager' [options]="cloneMaster?.projectManager"
+                            [settings]="settings" [(ngModel)]="selected.projectManager" [displayBy]="'name'"
+                            [identifyBy]="'id'" (Select)="onAddProjectManager($event)"
+                            (DeSelect)="onAddProjectManager($event)" (SelectAll)="onSelectAllprojectManager($event)"
+                            (DeSelectAll)="onRemoveAllprojectManager($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.projectStatus}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.projectStatus' [options]="cloneMaster?.projectStatus"
+                            [settings]="defaultSettings" [(ngModel)]="selected.projectStatus"
+                            [displayBy]="'Description'" [identifyBy]="'Id'" (Select)="onAddProjectStatus($event)"
+                            (DeSelect)="onAddProjectStatus($event)" (SelectAll)="onSelectAllProjectStatus($event)"
+                            (DeSelectAll)="onRemoveAllProjectStatus($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.finalResults}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.finalResults' [options]="cloneMaster?.finalResults"
+                            [settings]="settings" [(ngModel)]="selected.finalResults" [displayBy]="'Description'"
+                            [identifyBy]="'ID'" (Select)="onAddFinalResults($event)"
+                            (DeSelect)="onAddFinalResults($event)" (SelectAll)="onSelectAllFinalResults($event)"
+                            (DeSelectAll)="onRemoveAllFinalResults($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label
+                            class="mgn-btm-ten required_start">{{configData.opportunityData.FfCreativeSegment}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.creativeSegments'
+                            [options]="cloneMaster?.creativeSegments" [settings]="settings"
+                            [(ngModel)]="selected.creativeSegments" [displayBy]="'description'" [identifyBy]="'id'"
+                            (Select)="onAddCreativeSegments($event)" (DeSelect)="onAddCreativeSegments($event)"
+                            (SelectAll)="onSelectAllCreativeSegments($event)"
+                            (DeSelectAll)="onRemoveAllCreativeSegments($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <div class="mgn-btm-twnty labelspace">
+                        <label class="mgn-btm-ten required_start">{{configData.opportunityData.FfmarketSegment}}</label>
+                        <puma-multiselect *ngIf='cloneMaster?.marketSegment' [options]="cloneMaster?.marketSegment"
+                            [settings]="settings" [(ngModel)]="selected.marketSegment"
+                            [displayBy]="'description'" [identifyBy]="'id'" (Select)="onAddMarketSegments($event)"
+                            (DeSelect)="onAddMarketSegments($event)" (SelectAll)="onSelectAllMarketSegments($event)"
+                            (DeSelectAll)="onRemoveAllMarketSegments($event)">
+                        </puma-multiselect>
+                    </div>
+                </div>
+                <div class="presetFilter-item-list padding10">
+                    <app-slider [min]="minPotential" [max]="maxPotential" [rangeValue]="projectPotential.rangeValue"
+                        [minTitle]="'Project Potential'" [maxTitle]="" (onChange)='onChangeProjectPotential($event)'>
+                    </app-slider>
+                </div>
+
+            </div>
+        </div>
+    </div>

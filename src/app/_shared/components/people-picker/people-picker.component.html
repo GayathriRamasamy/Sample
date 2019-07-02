@@ -1,0 +1,15 @@
+<tag-input [ngModel]="Users" #input [required]="true" [disabled]="Disabled" [placeholder]="PlaceHolder" [onTextChangeDebounce]="500" [secondaryPlaceholder]="PlaceHolder" [onlyFromAutocomplete]="true" (onAdd)="onItemAdded($event)" (onRemove)="onItemRemove($event)" minimumTextLength="3" [maxItems]="LimitItems">
+    <ng-template let-item="item" let-index="index">
+    <span>
+      <profile-pic [UserId]="(item.value.id) ? item.value.id : item.value" [ImageSize]="28"></profile-pic>
+      &nbsp;&nbsp;<span class="contentnone">{{item.display}}</span>
+      <a [hidden]="Disabled" (click)="input.removeItem(item, index)" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
+    </span>
+  </ng-template>
+    <tag-input-dropdown [autocompleteObservable]="requestAutocompleteItems" [appendToBody]="appendToBody" [matchingFn]="matcherFunction.bind(this)">
+        <ng-template let-item="item" let-index="index">
+          <profile-pic [UserId]="item.value.id" [ImageSize]="28"></profile-pic>
+          &nbsp;&nbsp;{{ item.display }}
+        </ng-template>
+    </tag-input-dropdown>
+</tag-input>

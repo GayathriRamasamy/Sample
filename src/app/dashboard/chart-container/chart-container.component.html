@@ -1,0 +1,64 @@
+<div class="main-container-wrapper">
+  <!-- Header content and sortby dropdown -->
+  <div class="main-container">
+    <div class="container-header">
+      <div class="header-content">
+        <span class="p-2" class="header" *ngIf="header">{{header}}</span>
+        <span class="d-icon" ngbDropdown placement="bottom-left" *ngIf='isEnableSortby'>
+          <em  class="fa fa-angle-down f-icon fontWeight"  id="typeDropdown"  ngbDropdownToggle></em>
+          <ul ngbDropdownMenu class="sortby-dropdown" aria-labelledby="typeDropdown">
+            <li ngbDropdownItem class="sortby-dropdown-item" *ngFor="let sortOption of sortByOptions | keyvalue :sortFn"
+              (click)="toSortbyOption(sortOption)">
+              <u [ngClass]="{fntWeit600 : sortOption.key === selectedSortedOption}">
+                {{sortOption.value }}</u>
+            </li>
+          </ul>
+        </span>
+      </div>
+
+      <!-- Toggles -->
+      <div class="toggle-YOY">
+        <div class="toggle-container">
+          <span class="mdl-switch__label toggle-label" *ngFor="let toggle of toggles">
+            <span *ngFor="let report of toggle['reportToShow']">
+              <span *ngIf="report === selectedSecLvlTabKey">
+                <mdl-switch mdl-ripple class="mdl-switch-ge is-wide has-label-right mb-0"
+                  (change)="getToggleChanges($event,toggle['toggleValue'])">
+                  {{toggle['toggleName']}}
+                </mdl-switch>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Legends based on selected sort option -->
+    <div class="main-legends">
+      <div class="legendContent">
+        <span *ngFor="let legend of legends">
+          <span [ngStyle]="{'opacity' : objectValues(legend)[1] === true ? 1 : 0.5}">
+            <span  class="legends-circle" [ngStyle]=" {'background-color' : objectValues(legend)[0]}">
+            </span>
+            <span class="legend-title">{{objectKeys(legend)[0] }} </span>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- chart division -->
+    <div class="chart-container" id="print-chart-container">
+        <div class="bubble-chart">
+          <!-- Bubble chart component -->
+          <app-bubble-chart></app-bubble-chart>
+        </div>
+        <div class="column-chart">
+          <!-- Column chart component -->
+          <app-column-chart></app-column-chart>
+        </div>
+        <div>
+          <!-- Bar chart component -->
+          <app-bar-chart></app-bar-chart>
+        </div>
+      </div>   
+  </div>
+</div>

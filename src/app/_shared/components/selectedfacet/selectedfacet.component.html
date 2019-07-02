@@ -1,0 +1,11 @@
+<div>
+    <tag-input [(ngModel)]='facetsCollection' [displayBy]='DisplayName' [identifyBy]="'fieldName'" #input
+        (onRemove)="onRemoving($event)" [onlyFromAutocomplete]=true placeholder=''>
+        <ng-template let-item="item" let-index="index">
+            <span>{{item.GroupName +':'}} {{item.DisplayName}}</span>
+            <a *ngIf="!item.hideCancel" class="mdl-chip__action" (click)="input.removeItem(item)">
+                <i class="material-icons">cancel</i>
+            </a>
+        </ng-template>
+    </tag-input>
+</div>

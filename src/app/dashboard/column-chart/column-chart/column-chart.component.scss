@@ -1,0 +1,135 @@
+.column-chart-container {
+  background: #f3f3f3;
+}
+
+.column-chart-header-tab ul {
+  list-style: none;
+  display: inline-flex;
+  margin: 4px 0px 0px 9px;
+  font-family: Roboto medium;
+  font-weight: 400;
+  // color: grey;
+  color: #363630;
+    letter-spacing: 0.45px;
+    height: 37px;
+}
+
+.column-chart-header-tab ul li {
+  padding: 5px 15px 6px 15px;
+  cursor: pointer;
+}
+
+.column-chart-header-tab {
+  width: 80%;
+}
+
+.column-chart-header-content {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  background: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+}
+
+.column-chart-header-details-tab {
+  margin: auto auto;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.column-chart-header-tab .active {
+  background: white !important;
+  font-weight: 600;
+  font-family: Roboto medium;
+  color: black;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid white !important;
+}
+.x-axis-chart {
+  margin-top: 0px;
+}
+.xAxisColor {
+  background-color: #f1f1f1;
+  height: 60px;
+}
+
+:host /deep/ .chart-tooltip-card::after {
+  content: "\f054";
+  font: normal normal normal 16px/0 FontAwesome;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 98%;
+  border-color: white;
+}
+
+:host /deep/ .chart-tooltip-content table {
+  width: -webkit-fill-available;
+}
+
+.col-chart-wrap {
+  display: flex;
+  height: 280px;
+}
+
+.column-chart-yaxis {
+  width: 49px;
+  height: 280px;
+  background-color: #f1f1f1;
+}
+
+.core-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-chart-xaxis {
+  background-color: #f1f1f1;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+:host /deep/ .chart-tooltip-header-ipc-detail {
+  margin-top: 4px;
+  width: 100%;
+  display: flex;
+}
+
+:host /deep/ .grid .domain {
+  stroke: white;
+  stroke-opacity: 0.5;
+}
+
+.column-chart-header-details-tab button {
+  cursor: pointer;
+  height: 30px;
+  width: 85px;
+  color: #7f7f74;
+  font-family: "Roboto Medium", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 1px solid #7f7f74;
+  font-weight: bold;
+  border-radius: 2px;
+  background-color: #f5f5f5 !important;
+  margin: auto 5px;
+}
+
+.core-content {
+  padding: 0px !important;
+}
+
+:host /deep/ .x-axis .domain {
+  fill: transparent !important;
+  color: transparent !important;
+}
+
+.print-width-height {
+  width: 100%;
+  height: 215px;
+}

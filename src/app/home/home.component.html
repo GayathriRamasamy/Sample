@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <h3>Table</h3>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-12 col-md-12">
+      <app-welcome></app-welcome>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <h3>Date Viewer</h3>
+      <lib-date-viewer [dateValue]="today"></lib-date-viewer>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-3">
+      <h3>People Picker </h3>
+      <app-people-picker [LimitItems]="1" [(User)]="users" PlaceHolder="Search the name" class="picker"></app-people-picker>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-3 col-md-3">
+      <h3>Alpha Numeric </h3>
+      <input type="text" appAlphaNumeric />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 col-md-10">
+      <h3>Rich Text</h3>
+      <app-rich-text [(ngModel)]="text"></app-rich-text>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <h3>Datepicker</h3>
+      <app-mat-date-picker placeholder="Choose a date"></app-mat-date-picker>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-8">
+      <h3>Panel Collapse</h3>
+      <app-panelcollapse [label]="'Projects'" [panelCollapsed]="false" (closePanel)="closepanel($event)"></app-panelcollapse>
+      <div *ngIf="projectCollapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>
+</div>

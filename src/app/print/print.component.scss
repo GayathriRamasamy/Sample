@@ -1,0 +1,85 @@
+.padding-10-15 {
+    padding: 10px 15px;
+}
+
+.margin3 {
+    margin: 3px;
+}
+
+:host /deep/ #listView img {
+    margin-bottom: 20px !important;
+}
+
+:host /deep/ table {
+    color: black;
+}
+
+:host /deep/ .secondrow {
+    padding: 12px 15px 0 20px !important;
+}
+
+:host /deep/ .flag-icon-sec.top a.head {
+    color: #fff;
+}
+
+.padding-l-15p {
+    padding-left: 15px;
+}
+
+:host /deep/ #printProjectHeader tr,
+:host /deep/ #printFragranceHeader tr,
+:host /deep/ #printScentPortfolioHeader tr {
+    height: 0px !important;
+}
+
+:host /deep/ .namepjectstyle2 {
+    margin: 0 !important;
+}
+
+.small-button {
+    margin-right: 0;
+}
+
+:host /deep/ .custom-table {
+    thead {
+        th {
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            height: 65px !important;
+            &:last-child {
+                &:after {
+                    width: 0;
+                    height: 30px !important;
+                }
+            }
+            &:after {
+                top: 17px !important;
+            }
+        }
+    }
+}
+
+:host /deep/ .pject-tab-logo {
+    .img_section.left {
+        height: 56px;
+        width: 66px;
+        border-left-width: 8px;
+        border-style: solid;
+        border-color: white;
+        border-radius: 0px;
+        line-height: 55px;
+        & img {
+            border-radius: 0 !important;
+            height: 56px;
+            width: 56px;
+            border-left: 1px solid #fff;
+        }
+    }
+    .right {
+        width: calc(100% - 66px);
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
